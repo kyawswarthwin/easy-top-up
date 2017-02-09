@@ -1,5 +1,6 @@
 package com.moribanxenia.easytopup;
 
+
 import anywheresoftware.b4a.B4AMenuItem;
 import android.app.Activity;
 import android.os.Bundle;
@@ -44,6 +45,7 @@ public class welcomeactivity extends Activity implements B4AActivity{
 				p.finish();
 			}
 		}
+        processBA.runHook("oncreate", this, null);
 		if (!includeTitle) {
         	this.getWindow().requestFeature(android.view.Window.FEATURE_NO_TITLE);
         }
@@ -56,10 +58,12 @@ public class welcomeactivity extends Activity implements B4AActivity{
 		layout = new BALayout(this);
 		setContentView(layout);
 		afterFirstLayout = false;
-		BA.handler.postDelayed(new WaitForLayout(), 5);
+        WaitForLayout wl = new WaitForLayout();
+        if (anywheresoftware.b4a.objects.ServiceHelper.StarterHelper.startFromActivity(processBA, wl, true))
+		    BA.handler.postDelayed(wl, 5);
 
 	}
-	private static class WaitForLayout implements Runnable {
+	static class WaitForLayout implements Runnable {
 		public void run() {
 			if (afterFirstLayout)
 				return;
@@ -127,6 +131,8 @@ public class welcomeactivity extends Activity implements B4AActivity{
         } catch (Exception e) {
             e.printStackTrace();
         }
+        if (processBA.runHook("oncreateoptionsmenu", this, new Object[] {menu}))
+            return true;
 		if (menuItems == null)
 			return false;
 		for (B4AMenuItem bmi : menuItems) {
@@ -155,6 +161,21 @@ public class welcomeactivity extends Activity implements B4AActivity{
     }
     else
         return super.onOptionsItemSelected(item); 
+}
+@Override
+ public boolean onPrepareOptionsMenu(android.view.Menu menu) {
+    super.onPrepareOptionsMenu(menu);
+    processBA.runHook("onprepareoptionsmenu", this, new Object[] {menu});
+    return true;
+    
+ }
+ protected void onStart() {
+    super.onStart();
+    processBA.runHook("onstart", this, null);
+}
+ protected void onStop() {
+    super.onStop();
+    processBA.runHook("onstop", this, null);
 }
     public void onWindowFocusChanged(boolean hasFocus) {
        super.onWindowFocusChanged(hasFocus);
@@ -229,6 +250,7 @@ public class welcomeactivity extends Activity implements B4AActivity{
 	public void onNewIntent(android.content.Intent intent) {
         super.onNewIntent(intent);
 		this.setIntent(intent);
+        processBA.runHook("onnewintent", this, new Object[] {intent});
 	}
     @Override 
 	public void onPause() {
@@ -243,12 +265,14 @@ public class welcomeactivity extends Activity implements B4AActivity{
         if (!activityBA.activity.isFinishing())
 			previousOne = new WeakReference<Activity>(this);
         anywheresoftware.b4a.Msgbox.isDismissing = false;
+        processBA.runHook("onpause", this, null);
 	}
 
 	@Override
 	public void onDestroy() {
         super.onDestroy();
 		previousOne = null;
+        processBA.runHook("ondestroy", this, null);
 	}
     @Override 
 	public void onResume() {
@@ -259,6 +283,7 @@ public class welcomeactivity extends Activity implements B4AActivity{
         	ResumeMessage rm = new ResumeMessage(mostCurrent);
         	BA.handler.post(rm);
         }
+        processBA.runHook("onresume", this, null);
 	}
     private static class ResumeMessage implements Runnable {
     	private final WeakReference<Activity> activity;
@@ -277,22 +302,20 @@ public class welcomeactivity extends Activity implements B4AActivity{
 	protected void onActivityResult(int requestCode, int resultCode,
 	      android.content.Intent data) {
 		processBA.onActivityResult(requestCode, resultCode, data);
+        processBA.runHook("onactivityresult", this, new Object[] {requestCode, resultCode});
 	}
 	private static void initializeGlobals() {
 		processBA.raiseEvent2(null, true, "globals", false, (Object[])null);
 	}
 
 public anywheresoftware.b4a.keywords.Common __c = null;
-public anywheresoftware.b4a.objects.LabelWrapper _vvvvvvvvvvvvvvvv3 = null;
-public anywheresoftware.b4a.objects.ImageViewWrapper _vvvvvvvvvvvvvvvv4 = null;
-public anywheresoftware.b4a.objects.ImageViewWrapper _vvvvvvvvvvvvvvvv5 = null;
-public flm.b4a.animationplus.AnimationPlusWrapper _vvvvvvvvvvvvvvvv6 = null;
-public com.moribanxenia.easytopup.main _vvvvvvv6 = null;
-public com.moribanxenia.easytopup.packagesactivity _vvvvvvv7 = null;
-public com.moribanxenia.easytopup.smschannelsactivity _vvvvvvv0 = null;
-public com.moribanxenia.easytopup.notification _vvvvvvvv1 = null;
-public com.moribanxenia.easytopup.receiver _vvvvvvvv2 = null;
-public com.moribanxenia.easytopup.statemanager _vvvvvvvv4 = null;
+public anywheresoftware.b4a.objects.LabelWrapper _vvvvvvvvvvv4 = null;
+public anywheresoftware.b4a.objects.ImageViewWrapper _vvvvvvvvvvv5 = null;
+public anywheresoftware.b4a.objects.ImageViewWrapper _vvvvvvvvvvv6 = null;
+public flm.b4a.animationplus.AnimationPlusWrapper _vvvvvvvvvvv7 = null;
+public com.moribanxenia.easytopup.main _vvvvvvvvvvv1 = null;
+public com.moribanxenia.easytopup.offersactivity _vvvvvvvvv4 = null;
+public com.moribanxenia.easytopup.statemanager _vvvvv6 = null;
 
 public static void initializeProcessGlobals() {
              try {
@@ -306,116 +329,88 @@ public static String  _activity_create(boolean _firsttime) throws Exception{
  //BA.debugLineNum = 17;BA.debugLine="Activity.Color = Colors.ARGB(200, 0, 0, 0)";
 mostCurrent._activity.setColor(anywheresoftware.b4a.keywords.Common.Colors.ARGB((int) (200),(int) (0),(int) (0),(int) (0)));
  //BA.debugLineNum = 19;BA.debugLine="lblMessage.Initialize(\"\")";
-mostCurrent._vvvvvvvvvvvvvvvv3.Initialize(mostCurrent.activityBA,"");
- //BA.debugLineNum = 20;BA.debugLine="lblMessage.Text = \"ေဘးတိုက္ဆြဲ၍စာမ်က္ႏွာမ်ားေျပာင္းလဲႏိုင္ပါသည္။\"";
-mostCurrent._vvvvvvvvvvvvvvvv3.setText((Object)("ေဘးတိုက္ဆြဲ၍စာမ်က္ႏွာမ်ားေျပာင္းလဲႏိုင္ပါသည္။"));
+mostCurrent._vvvvvvvvvvv4.Initialize(mostCurrent.activityBA,"");
+ //BA.debugLineNum = 20;BA.debugLine="lblMessage.Text = \"ေဘးတိုက္ဆြဲ၍စာမ်က္ႏွာမ်ားေျပာင";
+mostCurrent._vvvvvvvvvvv4.setText((Object)("ေဘးတိုက္ဆြဲ၍စာမ်က္ႏွာမ်ားေျပာင္းလဲႏိုင္ပါသည္။"));
  //BA.debugLineNum = 21;BA.debugLine="lblMessage.Typeface = Main.SmartZawgyi";
-mostCurrent._vvvvvvvvvvvvvvvv3.setTypeface((android.graphics.Typeface)(mostCurrent._vvvvvvv6._vvvv3.getObject()));
+mostCurrent._vvvvvvvvvvv4.setTypeface((android.graphics.Typeface)(mostCurrent._vvvvvvvvvvv1._vvv6.getObject()));
  //BA.debugLineNum = 22;BA.debugLine="lblMessage.Gravity = Gravity.CENTER_HORIZONTAL";
-mostCurrent._vvvvvvvvvvvvvvvv3.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER_HORIZONTAL);
+mostCurrent._vvvvvvvvvvv4.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER_HORIZONTAL);
  //BA.debugLineNum = 23;BA.debugLine="lblMessage.TextSize = 16.5";
-mostCurrent._vvvvvvvvvvvvvvvv3.setTextSize((float) (16.5));
- //BA.debugLineNum = 24;BA.debugLine="Activity.AddView(lblMessage, 10dip, 30%y, 100%x - 20dip, Main.WRAP_CONTENT)";
-mostCurrent._activity.AddView((android.view.View)(mostCurrent._vvvvvvvvvvvvvvvv3.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10)),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (30),mostCurrent.activityBA),(int) (anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA)-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (20))),mostCurrent._vvvvvvv6._wrap_content);
+mostCurrent._vvvvvvvvvvv4.setTextSize((float) (16.5));
+ //BA.debugLineNum = 24;BA.debugLine="Activity.AddView(lblMessage, 10dip, 30%y, 100%x -";
+mostCurrent._activity.AddView((android.view.View)(mostCurrent._vvvvvvvvvvv4.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10)),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (30),mostCurrent.activityBA),(int) (anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA)-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (20))),mostCurrent._vvvvvvvvvvv1._wrap_content);
  //BA.debugLineNum = 26;BA.debugLine="ivSwipeBackground.Initialize(\"\")";
-mostCurrent._vvvvvvvvvvvvvvvv4.Initialize(mostCurrent.activityBA,"");
- //BA.debugLineNum = 27;BA.debugLine="ivSwipeBackground.Bitmap = LoadBitmap(File.DirAssets, \"swipebackground.png\")";
-mostCurrent._vvvvvvvvvvvvvvvv4.setBitmap((android.graphics.Bitmap)(anywheresoftware.b4a.keywords.Common.LoadBitmap(anywheresoftware.b4a.keywords.Common.File.getDirAssets(),"swipebackground.png").getObject()));
+mostCurrent._vvvvvvvvvvv5.Initialize(mostCurrent.activityBA,"");
+ //BA.debugLineNum = 27;BA.debugLine="ivSwipeBackground.Bitmap = LoadBitmap(File.DirAss";
+mostCurrent._vvvvvvvvvvv5.setBitmap((android.graphics.Bitmap)(anywheresoftware.b4a.keywords.Common.LoadBitmap(anywheresoftware.b4a.keywords.Common.File.getDirAssets(),"swipebackground.png").getObject()));
  //BA.debugLineNum = 28;BA.debugLine="ivSwipeBackground.Gravity = Gravity.FILL";
-mostCurrent._vvvvvvvvvvvvvvvv4.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.FILL);
- //BA.debugLineNum = 29;BA.debugLine="Activity.AddView(ivSwipeBackground, 0, 35%y, 100%x, 100%x)";
-mostCurrent._activity.AddView((android.view.View)(mostCurrent._vvvvvvvvvvvvvvvv4.getObject()),(int) (0),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (35),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA));
+mostCurrent._vvvvvvvvvvv5.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.FILL);
+ //BA.debugLineNum = 29;BA.debugLine="Activity.AddView(ivSwipeBackground, 0, 35%y, 100%";
+mostCurrent._activity.AddView((android.view.View)(mostCurrent._vvvvvvvvvvv5.getObject()),(int) (0),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (35),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA));
  //BA.debugLineNum = 31;BA.debugLine="ivSwipe.Initialize(\"\")";
-mostCurrent._vvvvvvvvvvvvvvvv5.Initialize(mostCurrent.activityBA,"");
- //BA.debugLineNum = 32;BA.debugLine="ivSwipe.Bitmap = LoadBitmap(File.DirAssets, \"swipe.png\")";
-mostCurrent._vvvvvvvvvvvvvvvv5.setBitmap((android.graphics.Bitmap)(anywheresoftware.b4a.keywords.Common.LoadBitmap(anywheresoftware.b4a.keywords.Common.File.getDirAssets(),"swipe.png").getObject()));
+mostCurrent._vvvvvvvvvvv6.Initialize(mostCurrent.activityBA,"");
+ //BA.debugLineNum = 32;BA.debugLine="ivSwipe.Bitmap = LoadBitmap(File.DirAssets, \"swip";
+mostCurrent._vvvvvvvvvvv6.setBitmap((android.graphics.Bitmap)(anywheresoftware.b4a.keywords.Common.LoadBitmap(anywheresoftware.b4a.keywords.Common.File.getDirAssets(),"swipe.png").getObject()));
  //BA.debugLineNum = 33;BA.debugLine="ivSwipe.Gravity = Gravity.FILL";
-mostCurrent._vvvvvvvvvvvvvvvv5.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.FILL);
- //BA.debugLineNum = 34;BA.debugLine="Activity.AddView(ivSwipe, 28%x, 35%y, 100%x, 100%x)";
-mostCurrent._activity.AddView((android.view.View)(mostCurrent._vvvvvvvvvvvvvvvv5.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (28),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (35),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA));
+mostCurrent._vvvvvvvvvvv6.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.FILL);
+ //BA.debugLineNum = 34;BA.debugLine="Activity.AddView(ivSwipe, 28%x, 35%y, 100%x, 100%";
+mostCurrent._activity.AddView((android.view.View)(mostCurrent._vvvvvvvvvvv6.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (28),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (35),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA));
  //BA.debugLineNum = 36;BA.debugLine="ap.InitializeTranslate(\"\", 0, 0, 28%x, 0)";
-mostCurrent._vvvvvvvvvvvvvvvv6.InitializeTranslate(mostCurrent.activityBA,"",(float) (0),(float) (0),(float) (anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (28),mostCurrent.activityBA)),(float) (0));
+mostCurrent._vvvvvvvvvvv7.InitializeTranslate(mostCurrent.activityBA,"",(float) (0),(float) (0),(float) (anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (28),mostCurrent.activityBA)),(float) (0));
  //BA.debugLineNum = 37;BA.debugLine="ap.Duration = 3000";
-mostCurrent._vvvvvvvvvvvvvvvv6.setDuration((long) (3000));
- //BA.debugLineNum = 38;BA.debugLine="ap.SetInterpolatorWithParam(ap.INTERPOLATOR_CYCLE, 1)";
-mostCurrent._vvvvvvvvvvvvvvvv6.SetInterpolatorWithParam(mostCurrent._vvvvvvvvvvvvvvvv6.INTERPOLATOR_CYCLE,(float) (1));
+mostCurrent._vvvvvvvvvvv7.setDuration((long) (3000));
+ //BA.debugLineNum = 38;BA.debugLine="ap.SetInterpolatorWithParam(ap.INTERPOLATOR_CYCLE";
+mostCurrent._vvvvvvvvvvv7.SetInterpolatorWithParam(mostCurrent._vvvvvvvvvvv7.INTERPOLATOR_CYCLE,(float) (1));
  //BA.debugLineNum = 39;BA.debugLine="ap.RepeatCount = ap.REPEAT_INFINITE";
-mostCurrent._vvvvvvvvvvvvvvvv6.setRepeatCount(mostCurrent._vvvvvvvvvvvvvvvv6.REPEAT_INFINITE);
+mostCurrent._vvvvvvvvvvv7.setRepeatCount(mostCurrent._vvvvvvvvvvv7.REPEAT_INFINITE);
  //BA.debugLineNum = 40;BA.debugLine="ap.Start(ivSwipe)";
-mostCurrent._vvvvvvvvvvvvvvvv6.Start((android.view.View)(mostCurrent._vvvvvvvvvvvvvvvv5.getObject()));
- //BA.debugLineNum = 42;BA.debugLine="SaveSMSToInbox(Main.AppName, \"မဂၤလာပါ \" & Main.AppName & \" မွ ႀကိဳဆိုပါတယ္။\")";
-_vvvvvvvvvvvvvvvv2(mostCurrent._vvvvvvv6._vvv0,"မဂၤလာပါ "+mostCurrent._vvvvvvv6._vvv0+" မွ ႀကိဳဆိုပါတယ္။");
- //BA.debugLineNum = 43;BA.debugLine="End Sub";
+mostCurrent._vvvvvvvvvvv7.Start((android.view.View)(mostCurrent._vvvvvvvvvvv6.getObject()));
+ //BA.debugLineNum = 41;BA.debugLine="End Sub";
 return "";
 }
 public static boolean  _activity_keypress(int _keycode) throws Exception{
- //BA.debugLineNum = 53;BA.debugLine="Sub Activity_KeyPress (KeyCode As Int) As Boolean 'Return True to consume the event";
- //BA.debugLineNum = 54;BA.debugLine="If KeyCode = KeyCodes.KEYCODE_BACK Then Activity.Finish";
+ //BA.debugLineNum = 51;BA.debugLine="Sub Activity_KeyPress (KeyCode As Int) As Boolean";
+ //BA.debugLineNum = 52;BA.debugLine="If KeyCode = KeyCodes.KEYCODE_BACK Then Activity.";
 if (_keycode==anywheresoftware.b4a.keywords.Common.KeyCodes.KEYCODE_BACK) { 
 mostCurrent._activity.Finish();};
- //BA.debugLineNum = 55;BA.debugLine="End Sub";
+ //BA.debugLineNum = 53;BA.debugLine="End Sub";
 return false;
 }
 public static String  _activity_pause(boolean _userclosed) throws Exception{
- //BA.debugLineNum = 49;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
- //BA.debugLineNum = 50;BA.debugLine="StateManager.SetSetting(\"FirstTime\", False)";
-mostCurrent._vvvvvvvv4._vvv6(mostCurrent.activityBA,"FirstTime",BA.ObjectToString(anywheresoftware.b4a.keywords.Common.False));
- //BA.debugLineNum = 51;BA.debugLine="End Sub";
+ //BA.debugLineNum = 47;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+ //BA.debugLineNum = 48;BA.debugLine="StateManager.SetSetting(\"FirstTime\", False)";
+mostCurrent._vvvvv6._vvv2(mostCurrent.activityBA,"FirstTime",BA.ObjectToString(anywheresoftware.b4a.keywords.Common.False));
+ //BA.debugLineNum = 49;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_resume() throws Exception{
- //BA.debugLineNum = 45;BA.debugLine="Sub Activity_Resume";
- //BA.debugLineNum = 47;BA.debugLine="End Sub";
+ //BA.debugLineNum = 43;BA.debugLine="Sub Activity_Resume";
+ //BA.debugLineNum = 45;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_touch(int _action,float _x,float _y) throws Exception{
- //BA.debugLineNum = 57;BA.debugLine="Sub Activity_Touch (Action As Int, X As Float, Y As Float)";
- //BA.debugLineNum = 58;BA.debugLine="Activity.Finish";
+ //BA.debugLineNum = 55;BA.debugLine="Sub Activity_Touch (Action As Int, X As Float, Y A";
+ //BA.debugLineNum = 56;BA.debugLine="Activity.Finish";
 mostCurrent._activity.Finish();
- //BA.debugLineNum = 59;BA.debugLine="End Sub";
+ //BA.debugLineNum = 57;BA.debugLine="End Sub";
 return "";
 }
 public static String  _globals() throws Exception{
  //BA.debugLineNum = 10;BA.debugLine="Sub Globals";
- //BA.debugLineNum = 11;BA.debugLine="Dim lblMessage As Label";
-mostCurrent._vvvvvvvvvvvvvvvv3 = new anywheresoftware.b4a.objects.LabelWrapper();
- //BA.debugLineNum = 12;BA.debugLine="Dim ivSwipeBackground, ivSwipe As ImageView";
-mostCurrent._vvvvvvvvvvvvvvvv4 = new anywheresoftware.b4a.objects.ImageViewWrapper();
-mostCurrent._vvvvvvvvvvvvvvvv5 = new anywheresoftware.b4a.objects.ImageViewWrapper();
- //BA.debugLineNum = 13;BA.debugLine="Dim ap As AnimationPlus";
-mostCurrent._vvvvvvvvvvvvvvvv6 = new flm.b4a.animationplus.AnimationPlusWrapper();
+ //BA.debugLineNum = 11;BA.debugLine="Private lblMessage As Label";
+mostCurrent._vvvvvvvvvvv4 = new anywheresoftware.b4a.objects.LabelWrapper();
+ //BA.debugLineNum = 12;BA.debugLine="Private ivSwipeBackground, ivSwipe As ImageView";
+mostCurrent._vvvvvvvvvvv5 = new anywheresoftware.b4a.objects.ImageViewWrapper();
+mostCurrent._vvvvvvvvvvv6 = new anywheresoftware.b4a.objects.ImageViewWrapper();
+ //BA.debugLineNum = 13;BA.debugLine="Private ap As AnimationPlus";
+mostCurrent._vvvvvvvvvvv7 = new flm.b4a.animationplus.AnimationPlusWrapper();
  //BA.debugLineNum = 14;BA.debugLine="End Sub";
 return "";
 }
 public static String  _process_globals() throws Exception{
  //BA.debugLineNum = 6;BA.debugLine="Sub Process_Globals";
  //BA.debugLineNum = 8;BA.debugLine="End Sub";
-return "";
-}
-public static String  _vvvvvvvvvvvvvvvv2(String _address,String _body) throws Exception{
-anywheresoftware.b4a.objects.ContentResolverWrapper _resolver = null;
-anywheresoftware.b4a.objects.ContentResolverWrapper.UriWrapper _uri1 = null;
-anywheresoftware.b4a.objects.ContentResolverWrapper.ContentValuesWrapper _values = null;
- //BA.debugLineNum = 61;BA.debugLine="Sub SaveSMSToInbox(Address As String, Body As String)";
- //BA.debugLineNum = 62;BA.debugLine="Dim resolver As ContentResolver";
-_resolver = new anywheresoftware.b4a.objects.ContentResolverWrapper();
- //BA.debugLineNum = 63;BA.debugLine="Dim uri1 As Uri : uri1.Parse(\"content://sms/inbox\")";
-_uri1 = new anywheresoftware.b4a.objects.ContentResolverWrapper.UriWrapper();
- //BA.debugLineNum = 63;BA.debugLine="Dim uri1 As Uri : uri1.Parse(\"content://sms/inbox\")";
-_uri1.Parse("content://sms/inbox");
- //BA.debugLineNum = 64;BA.debugLine="Dim values As ContentValues";
-_values = new anywheresoftware.b4a.objects.ContentResolverWrapper.ContentValuesWrapper();
- //BA.debugLineNum = 66;BA.debugLine="resolver.Initialize(\"\")";
-_resolver.Initialize("");
- //BA.debugLineNum = 67;BA.debugLine="values.Initialize";
-_values.Initialize();
- //BA.debugLineNum = 68;BA.debugLine="values.PutString(\"address\", Address)";
-_values.PutString("address",_address);
- //BA.debugLineNum = 69;BA.debugLine="values.PutString(\"body\", Body)";
-_values.PutString("body",_body);
- //BA.debugLineNum = 70;BA.debugLine="resolver.Insert(uri1, values)";
-_resolver.Insert(_uri1,(android.content.ContentValues)(_values.getObject()));
- //BA.debugLineNum = 71;BA.debugLine="End Sub";
 return "";
 }
 }

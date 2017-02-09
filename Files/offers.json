@@ -1,0 +1,300 @@
+﻿{
+    "plans": {
+        "41401": [
+            {
+                "title": "Swe Thahar",
+                "price": "FOC",
+                "voice": "23 Ks/min",
+                "sms": "10 Ks/SMS",
+                "data": "6 Ks/MB",
+                "limitation": "-",
+                "validityPeriod": "~",
+                "phoneNumber": "1332",
+                "activation": "SWE",
+                "deactivation": "UNSUB SWE"
+            }
+        ],
+        "41403": [
+            {
+                "title": "Shwe Myint Tar",
+                "price": "FOC",
+                "voice": "21 Ks/min (On-Net), 22 Ks/min (Off-Net)",
+                "sms": "15 Ks/SMS",
+                "data": "6 Ks/MB",
+                "limitation": "-",
+                "validityPeriod": "~",
+                "phoneNumber": "233",
+                "activation": "SMT",
+                "deactivation": "UNSMT"
+            }
+        ],
+        "41406": [
+            {
+                "title": "Super Pwar",
+                "price": "FOC",
+                "voice": "18 Ks/min (On-Net), 23 Ks/min (Off-Net)",
+                "sms": "-",
+                "data": "6 Ks/MB",
+                "limitation": "-",
+                "validityPeriod": "~",
+                "phoneNumber": "365",
+                "activation": "SUP ON",
+                "deactivation": "SUP OFF"
+            }
+        ]
+    },
+    "dataPacks": {
+        "41401": [
+            {
+                "title": "Internet Monthly 550 MB",
+                "price": "2,940 Ks",
+                "volume": "550 MB",
+                "limitation": "-",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "1332",
+                "activation": "400MB"
+            },
+            {
+                "title": "Internet Monthly 1.35 GB",
+                "price": "6,825 Ks",
+                "volume": "1.35 GB",
+                "limitation": "-",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "1332",
+                "activation": "1GB"
+            },
+            {
+                "title": "Internet Monthly 6.5 GB",
+                "price": "26,250 Ks",
+                "volume": "6.5 GB",
+                "limitation": "-",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "1332",
+                "activation": "5GB"
+            },
+            {
+                "title": "Night Time Data Daily",
+                "price": "315 Ks",
+                "volume": "250 MB",
+                "limitation": "Only 11:00 PM - 7:00 AM",
+                "validityPeriod": "1 Day",
+                "phoneNumber": "1332",
+                "activation": "1N"
+            },
+            {
+                "title": "Night Time Data Weekly",
+                "price": "1,050 Ks",
+                "volume": "1 GB",
+                "limitation": "Only 11:00 PM - 7:00 AM",
+                "validityPeriod": "7 Days",
+                "phoneNumber": "1332",
+                "activation": "7N"
+            },
+            {
+                "title": "Night Time Data Monthly",
+                "price": "3,360 Ks",
+                "volume": "4 GB",
+                "limitation": "Only 11:00 PM - 7:00 AM",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "1332",
+                "activation": "30N"
+            }
+        ],
+        "41403": [
+            {
+                "title": "Internet Weekly",
+                "price": "550 Ks",
+                "volume": "100 MB",
+                "limitation": "-",
+                "validityPeriod": "7 Days",
+                "phoneNumber": "233",
+                "activation": "100MB"
+            },
+            {
+                "title": "Internet Monthly 500 MB",
+                "price": "2,750 Ks",
+                "volume": "500 MB",
+                "limitation": "-",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "233",
+                "activation": "500MB"
+            },
+            {
+                "title": "Internet Monthly 1 GB",
+                "price": "5,300 Ks",
+                "volume": "1 GB",
+                "limitation": "-",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "233",
+                "activation": "1GB"
+            },
+            {
+                "title": "Internet Monthly 2 GB",
+                "price": "10,000 Ks",
+                "volume": "2 GB",
+                "limitation": "-",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "233",
+                "activation": "2GB"
+            }
+        ],
+        "41405": [
+            {
+                "title": "Internet Daily",
+                "price": "450 Ks",
+                "volume": "70 MB",
+                "limitation": "-",
+                "validityPeriod": "1 Day",
+                "phoneNumber": "2238",
+                "activation": "70MB"
+            },
+            {
+                "title": "Internet Monthly 550 MB",
+                "price": "3,000 Ks",
+                "volume": "550 MB",
+                "limitation": "-",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "2238",
+                "activation": "550MB"
+            },
+            {
+                "title": "Internet Monthly 1.35 GB",
+                "price": "6,850 Ks",
+                "volume": "1.35 GB",
+                "limitation": "-",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "2238",
+                "activation": "1.35GB"
+            },
+            {
+                "title": "Internet Monthly 2.5 GB",
+                "price": "12,500 Ks",
+                "volume": "2.5 GB",
+                "limitation": "-",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "2238",
+                "activation": "2.5GB"
+            },
+            {
+                "title": "Internet Monthly 5.5 GB",
+                "price": "27,000 Ks",
+                "volume": "5.5 GB",
+                "limitation": "-",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "2238",
+                "activation": "5.5GB"
+            }
+        ],
+        "41406": [
+            {
+                "title": "My Internet",
+                "price": "5 Ks/MB",
+                "volume": "~",
+                "limitation": "-",
+                "validityPeriod": "~",
+                "phoneNumber": "500",
+                "activation": "my"
+            },
+            {
+                "title": "My Internet Weekly",
+                "price": "500 Ks",
+                "volume": "104.7 MB",
+                "limitation": "-",
+                "validityPeriod": "7 Days",
+                "phoneNumber": "500",
+                "activation": "myweek"
+            },
+            {
+                "title": "My Internet Monthly",
+                "price": "1,900 Ks",
+                "volume": "476.1 MB",
+                "limitation": "-",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "500",
+                "activation": "mymonth"
+            },
+            {
+                "title": "Smart Internet",
+                "price": "6 Ks/MB",
+                "volume": "~",
+                "limitation": "-",
+                "validityPeriod": "~",
+                "phoneNumber": "500",
+                "activation": "smart"
+            },
+            {
+                "title": "Smart Internet Monthly 500 MB",
+                "price": "2,700 Ks",
+                "volume": "476.1 MB",
+                "limitation": "-",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "500",
+                "activation": "smart500mb"
+            },
+            {
+                "title": "Smart Internet Monthly 1.25 GB",
+                "price": "6,600 Ks",
+                "volume": "1190.4 MB",
+                "limitation": "-",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "500",
+                "activation": "smartmonth"
+            },
+            {
+                "title": "Smart Internet Monthly 2.4 GB",
+                "price": "11,900 Ks",
+                "volume": "2285.7 MB",
+                "limitation": "-",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "500",
+                "activation": "smartmonth2"
+            },
+            {
+                "title": "Smart Internet Monthly 5 GB",
+                "price": "25,000 Ks",
+                "volume": "4876.1 MB",
+                "limitation": "-",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "500",
+                "activation": "smart5gb"
+            }
+        ]
+    },
+    "specialPacks": {
+        "41406": [
+            {
+                "title": "Super Zee Kwat Weekly",
+                "price": "800 Ks",
+                "voice": "1 Ks/min",
+                "sms": "-",
+                "data": "1 Ks/MB",
+                "limitation": "Only 11:00 PM - 7:00 AM",
+                "validityPeriod": "7 Days",
+                "phoneNumber": "500",
+                "activation": "T800"
+            },
+            {
+                "title": "Super Zee Kwat Monthly",
+                "price": "2,500 Ks",
+                "voice": "1 Ks/min",
+                "sms": "-",
+                "data": "1 Ks/MB",
+                "limitation": "Only 11:00 PM - 7:00 AM",
+                "validityPeriod": "30 Days",
+                "phoneNumber": "500",
+                "activation": "T2500"
+            },
+            {
+                "title": "Facebook Pack",
+                "price": "1,400 Ks",
+                "voice": "-",
+                "sms": "-",
+                "data": "1.5 Ks/MB",
+                "limitation": "Facebook Only",
+                "validityPeriod": "14 Days",
+                "phoneNumber": "500",
+                "activation": "FB"
+            }
+        ]
+    }
+}
