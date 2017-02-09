@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="firebase_database_url" translatable="false">https://easy-top-up.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">168746902470</string>
+  <string name="google_storage_bucket" translatable="false">easy-top-up.appspot.com</string>
+  <string name="google_app_id" translatable="false">1:168746902470:android:bb0bc6bc8be0ca90</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAdxMeO6vf9AT9MS3nrFQ-Dv_F3_9w_Fbc</string>
+  <string name="google_api_key" translatable="false">AIzaSyAdxMeO6vf9AT9MS3nrFQ-Dv_F3_9w_Fbc</string>
+  <string name="default_web_client_id" translatable="false">168746902470-44q1q2jddoibr6bsal3t2flo9eqieujg.apps.googleusercontent.com</string>
+</resources>

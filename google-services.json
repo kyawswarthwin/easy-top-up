@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "168746902470",
+    "firebase_url": "https://easy-top-up.firebaseio.com",
+    "project_id": "easy-top-up",
+    "storage_bucket": "easy-top-up.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168746902470:android:bb0bc6bc8be0ca90",
+        "android_client_info": {
+          "package_name": "com.moribanxenia.easytopup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "168746902470-44q1q2jddoibr6bsal3t2flo9eqieujg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdxMeO6vf9AT9MS3nrFQ-Dv_F3_9w_Fbc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
