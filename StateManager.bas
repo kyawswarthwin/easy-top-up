@@ -1,9 +1,9 @@
 ﻿Type=StaticCode
-Version=6
+Version=4
 ModulesStructureVersion=1
 B4A=true
 @EndOfDesignText@
-'StateManager v1.20
+'StateManager v1.11
 'Code module
 Sub Process_Globals
 	Dim states As Map
@@ -15,7 +15,7 @@ Sub Process_Globals
 End Sub
 'Gets the setting value associated with the given key.
 'Returns the DefaultValue parameter if the key was not found.
-Public Sub GetSetting2(Key As String, DefaultValue As String) As String
+Sub GetSetting2(Key As String, DefaultValue As String)
 	If settings.IsInitialized = False Then
 		'load the stored settings
 		If File.Exists(File.DirInternal, settingsFileName) Then 
@@ -30,11 +30,10 @@ Public Sub GetSetting2(Key As String, DefaultValue As String) As String
 End Sub
 'Gets the setting value associated with the given key.
 'Returns an empty string if the key was not found.
-Public Sub GetSetting(Key As String) As String
+Sub GetSetting(Key As String)
 	Return GetSetting2(Key, "")
 End Sub
-
-Public Sub SetSetting(Key As String, Value As String)
+Sub SetSetting(Key As String, Value As String)
 	If settings.IsInitialized = False Then
 		'load the stored settings
 		If File.Exists(File.DirInternal, settingsFileName) Then 
@@ -45,16 +44,15 @@ Public Sub SetSetting(Key As String, Value As String)
 	End If
 	settings.Put(Key.ToLowerCase, Value)
 End Sub
-
 'Stored the settings in a file
-Public Sub SaveSettings
+Sub SaveSettings
 	If settings.IsInitialized Then
 		File.WriteMap(File.DirInternal, settingsFileName, settings)
 	End If
 End Sub
 
 'Resets the stored state data for this activity.
-Public Sub ResetState(ActivityName As String)
+Sub ResetState(ActivityName As String)
 	loadStateFile
 	If states.IsInitialized Then 
 		states.Remove(ActivityName.ToLowerCase)
@@ -62,7 +60,7 @@ Public Sub ResetState(ActivityName As String)
 	End If
 End Sub
 'Saves the activity state. ActivityName - Used for handling multiple activities.
-Public Sub SaveState(Activity As Activity, ActivityName As String)
+Sub SaveState(Activity As Activity, ActivityName As String)
 	If states.IsInitialized = False Then states.Initialize
 	Dim list1 As List
 	list1.Initialize
@@ -73,15 +71,13 @@ Public Sub SaveState(Activity As Activity, ActivityName As String)
 	states.Put(ActivityName.ToLowerCase, list1)
 	writeStateToFile
 End Sub
-
-Private Sub writeStateToFile
+Sub writeStateToFile
 	Dim raf As RandomAccessFile
 	raf.Initialize(File.DirInternal, statesFileName, False)
 	raf.WriteObject(states, True, raf.CurrentPosition)
 	raf.Close
 End Sub
-
-Private Sub innerSaveState(v As View, list1 As List)
+Sub innerSaveState(v As View, list1 As List)
 	Dim data() As Object
 	If v Is EditText Then
 		Dim edit As EditText
@@ -139,8 +135,7 @@ Private Sub innerSaveState(v As View, list1 As List)
 	End If
 	If data.Length > 0 Then list1.Add(data)
 End Sub
-
-Private Sub innerRestoreState(v As View, list1 As List)
+Sub innerRestoreState(v As View, list1 As List)
 	Dim data() As Object
 	If v Is EditText Then
 		Dim edit As EditText
@@ -205,7 +200,7 @@ Private Sub innerRestoreState(v As View, list1 As List)
 	End If
 End Sub
 
-Private Sub getNextItem(list1 As List) As Object()
+Sub getNextItem(list1 As List) As Object()
 	listPosition = listPosition + 1
 	Return list1.Get(listPosition)
 End Sub
@@ -213,7 +208,7 @@ End Sub
 'ActivityName - Should match the value use in SaveState
 'ValidPeriodInMinutes - The validity period of this state measured in minutes. Pass 0 for an unlimited period.
 'Returns true if the state was loaded
-Public Sub RestoreState(Activity As Activity, ActivityName As String, ValidPeriodInMinutes As Int) As Boolean
+Sub RestoreState(Activity As Activity, ActivityName As String, ValidPeriodInMinutes As Int) As Boolean
 	Try
 		loadStateFile
 		If states.IsInitialized = False Then
@@ -221,10 +216,10 @@ Public Sub RestoreState(Activity As Activity, ActivityName As String, ValidPerio
 		End If
 		Dim list1 As List
 		list1 = states.Get(ActivityName.ToLowerCase)
-		If list1.IsInitialized = False Then Return False
+		If list1.IsInitialized = False Then Return
 		Dim time As Long
 		time = list1.Get(0)
-		If ValidPeriodInMinutes > 0 And time + ValidPeriodInMinutes * DateTime.TicksPerMinute < DateTime.Now Then
+		If ValidPeriodInMinutes > 0 AND time + ValidPeriodInMinutes * DateTime.TicksPerMinute < DateTime.Now Then
 			Return False
 		End If
 		listPosition = 0
@@ -239,7 +234,7 @@ Public Sub RestoreState(Activity As Activity, ActivityName As String, ValidPerio
 	End Try
 End Sub
 
-Private Sub loadStateFile
+Sub loadStateFile
 	'only load the state if it is not already available in memory.
 	If states.IsInitialized Then Return
 	If File.Exists(File.DirInternal, statesFileName) Then

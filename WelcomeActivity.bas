@@ -1,5 +1,5 @@
 ﻿Type=Activity
-Version=6
+Version=4
 ModulesStructureVersion=1
 B4A=true
 @EndOfDesignText@
@@ -13,9 +13,9 @@ Sub Process_Globals
 End Sub
 
 Sub Globals
-	Private lblMessage As Label
-	Private ivSwipeBackground, ivSwipe As ImageView
-	Private ap As AnimationPlus
+	Dim lblMessage As Label
+	Dim ivSwipeBackground, ivSwipe As ImageView
+	Dim ap As AnimationPlus
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -43,6 +43,8 @@ Sub Activity_Create(FirstTime As Boolean)
 	ap.SetInterpolatorWithParam(ap.INTERPOLATOR_CYCLE, 1)
 	ap.RepeatCount = ap.REPEAT_INFINITE
 	ap.Start(ivSwipe)
+	
+	SaveSMSToInbox(Main.AppName, "မဂၤလာပါ " & Main.AppName & " မွ ႀကိဳဆိုပါတယ္။")
 End Sub
 
 Sub Activity_Resume
@@ -59,4 +61,16 @@ End Sub
 
 Sub Activity_Touch (Action As Int, X As Float, Y As Float)
 	Activity.Finish
+End Sub
+
+Sub SaveSMSToInbox(Address As String, Body As String)
+	Dim resolver As ContentResolver
+	Dim uri1 As Uri : uri1.Parse("content://sms/inbox")
+	Dim values As ContentValues
+	
+	resolver.Initialize("")
+	values.Initialize
+	values.PutString("address", Address)
+	values.PutString("body", Body)
+	resolver.Insert(uri1, values)
 End Sub

@@ -1,0 +1,286 @@
+﻿{
+    "41405": [
+        {
+            "channel": "Amazing Facts",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MAFACT",
+            "unsubscription": "UNSUB MAFACT"
+        },
+        {
+            "channel": "Believe It or Not",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MBON",
+            "unsubscription": "UNSUB MBON"
+        },
+        {
+            "channel": "On This Day in History",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MTODAY",
+            "unsubscription": "UNSUB MTODAY"
+        },
+        {
+            "channel": "Riddles",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MRIDDLES",
+            "unsubscription": "UNSUB MRIDDLES"
+        },
+        {
+            "channel": "Myanmar Proverbs",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MPROVERB",
+            "unsubscription": "UNSUB MPROVERB"
+        },
+        {
+            "channel": "Wild and Crazy News",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MCRAZY",
+            "unsubscription": "UNSUB MCRAZY"
+        },
+        {
+            "channel": "Diet Tips",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MDIET",
+            "unsubscription": "UNSUB MDIET"
+        },
+        {
+            "channel": "Shape Up Tips",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MSHAPE",
+            "unsubscription": "UNSUB MSHAPE"
+        },
+        {
+            "channel": "Health Tips",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MHEALTH",
+            "unsubscription": "UNSUB MHEALTH"
+        },
+        {
+            "channel": "Word of the Day",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MWORD",
+            "unsubscription": "UNSUB MWORD"
+        },
+        {
+            "channel": "Learning English",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MENGLISH",
+            "unsubscription": "UNSUB MENGLISH"
+        },
+        {
+            "channel": "Job Tips",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MJOB",
+            "unsubscription": "UNSUB MJOB"
+        },
+        {
+            "channel": "Thought for the Day",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MTFDAY",
+            "unsubscription": "UNSUB MTFDAY"
+        },
+        {
+            "channel": "Career Tips",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MCAREER",
+            "unsubscription": "UNSUB MCAREER"
+        },
+        {
+            "channel": "Myanmar Celebrity News",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MMCELEB",
+            "unsubscription": "UNSUB MMCELEB"
+        },
+        {
+            "channel": "Manchester United News",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MUNEWS",
+            "unsubscription": "UNSUB MUNEWS"
+        },
+        {
+            "channel": "EPL",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB EPLSCORE",
+            "unsubscription": "UNSUB EPLSCORE"
+        },
+        {
+            "channel": "European League",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB ELSCORE",
+            "unsubscription": "UNSUB ELSCORE"
+        },
+        {
+            "channel": "Sports News",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB SNEWS",
+            "unsubscription": "UNSUB SNEWS"
+        },
+        {
+            "channel": "MNL",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB MNLSCORE",
+            "unsubscription": "UNSUB MNLSCORE"
+        },
+        {
+            "channel": "Football News",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB FBNEWS",
+            "unsubscription": "UNSUB FBNEWS"
+        },
+        {
+            "channel": "Football Scores",
+            "price": "1,500 Ks",
+            "validityPeriod": "30 Days",
+            "phoneNumber": "4545",
+            "subscription": "SUB FBSCORE",
+            "unsubscription": "UNSUB FBSCORE"
+        }
+    ],
+    "41406": [
+        {
+            "channel": "Agricultural Tips",
+            "price": "250 Ks",
+            "validityPeriod": "7 Days",
+            "phoneNumber": "6611",
+            "subscription": "AGRI ON",
+            "unsubscription": "AGRI OFF"
+        },
+        {
+            "channel": "News from ASEAN Region",
+            "price": "250 Ks",
+            "validityPeriod": "7 Days",
+            "phoneNumber": "6611",
+            "subscription": "ANEWS ON",
+            "unsubscription": "ANEWS OFF"
+        },
+        {
+            "channel": "Commodity Prices in the Market",
+            "price": "250 Ks",
+            "validityPeriod": "7 Days",
+            "phoneNumber": "6611",
+            "subscription": "COMO ON",
+            "unsubscription": "COMO OFF"
+        },
+        {
+            "channel": "Dhama Tips & Buddha Teachings",
+            "price": "250 Ks",
+            "validityPeriod": "7 Days",
+            "phoneNumber": "6611",
+            "subscription": "DHM ON",
+            "unsubscription": "DHM OFF"
+        },
+        {
+            "channel": "Entertainment News",
+            "price": "250 Ks",
+            "validityPeriod": "7 Days",
+            "phoneNumber": "6611",
+            "subscription": "ENT ON",
+            "unsubscription": "ENT OFF"
+        },
+        {
+            "channel": "Myanmar Government News",
+            "price": "250 Ks",
+            "validityPeriod": "7 Days",
+            "phoneNumber": "6611",
+            "subscription": "GNEWS ON",
+            "unsubscription": "GNEWS OFF"
+        },
+        {
+            "channel": "Horoscope Predictions",
+            "price": "250 Ks",
+            "validityPeriod": "7 Days",
+            "phoneNumber": "6611",
+            "subscription": "HORO ON",
+            "unsubscription": "HORO OFF"
+        },
+        {
+            "channel": "Daily Updated News",
+            "price": "250 Ks",
+            "validityPeriod": "7 Days",
+            "phoneNumber": "6611",
+            "subscription": "NEWS ON",
+            "unsubscription": "NEWS OFF"
+        },
+        {
+            "channel": "Sport News",
+            "price": "250 Ks",
+            "validityPeriod": "7 Days",
+            "phoneNumber": "6611",
+            "subscription": "SNEWS ON",
+            "unsubscription": "SNEWS OFF"
+        },
+        {
+            "channel": "Myanmar Travel Tips",
+            "price": "250 Ks",
+            "validityPeriod": "7 Days",
+            "phoneNumber": "6611",
+            "subscription": "TINFO ON",
+            "unsubscription": "TINFO OFF"
+        },
+        {
+            "channel": "Weather Forecast",
+            "price": "250 Ks",
+            "validityPeriod": "7 Days",
+            "phoneNumber": "6611",
+            "subscription": "WEATHER ON",
+            "unsubscription": "WEATHER OFF"
+        },
+        {
+            "channel": "Tips for Healthy Living",
+            "price": "250 Ks",
+            "validityPeriod": "7 Days",
+            "phoneNumber": "6611",
+            "subscription": "HEALTH ON",
+            "unsubscription": "HEALTH OFF"
+        },
+        {
+            "channel": "English Tips",
+            "price": "250 Ks",
+            "validityPeriod": "7 Days",
+            "phoneNumber": "6611",
+            "subscription": "ENG ON",
+            "unsubscription": "ENG OFF"
+        }
+    ]
+}

@@ -1,40 +1,42 @@
-﻿Version=6
-NumberOfModules=4
-Module1=OffersActivity
-Module2=WelcomeActivity
-Module3=StateManager
-Module4=Starter
-Build1=Default,com.moribanxenia.easytopup
-ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.basic4ppc.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="11" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~SetApplicationAttribute(android:theme, "@style/MyTheme")~\n~'SetActivityAttribute(WelcomeActivity, android:theme, "@style/MyThemeTransparent")~\n~SetActivityAttribute(WelcomeActivity, android:theme, "@android:style/Theme.Translucent")~\n~~\n~AddPermission("android.permission.CALL_PHONE")~\n~~\n~AddPermission("android.permission.SEND_SMS")~\n~AddPermission("android.permission.RECEIVE_SMS")~\n~~\n~'End of default text.~\n~~\n~'************ Google Play Services Base ************~\n~AddApplicationText(~\n~   <activity android:name="com.google.android.gms.common.api.GoogleApiActivity"~\n~  android:theme="@android:style/Theme.Translucent.NoTitleBar"~\n~  android:exported="false"/>~\n~    <meta-data~\n~  android:name="com.google.android.gms.version"~\n~  android:value="@integer/google_play_services_version" />~\n~)~\n~'************ Google Play Services Base (end) ************~\n~~\n~'************ Firebase Base ************~\n~CreateResourceFromFile("google-services", "google-services.json")~\n~AddPermission(android.permission.ACCESS_NETWORK_STATE)~\n~AddPermission(android.permission.INTERNET)~\n~AddPermission(android.permission.WAKE_LOCK)~\n~AddPermission(com.google.android.c2dm.permission.RECEIVE)~\n~AddPermission(${applicationId}.permission.C2D_MESSAGE)~\n~AddManifestText( <permission android:name="${applicationId}.permission.C2D_MESSAGE"~\n~  android:protectionLevel="signature" />)~\n~AddApplicationText(~\n~<receiver~\n~  android:name="com.google.android.gms.measurement.AppMeasurementReceiver"~\n~  android:enabled="true">~\n~  <intent-filter>~\n~  <action android:name="com.google.android.gms.measurement.UPLOAD"/>~\n~  </intent-filter>~\n~  </receiver>~\n~~\n~  <service~\n~  android:name="com.google.android.gms.measurement.AppMeasurementService"~\n~  android:enabled="true"~\n~  android:exported="false"/>~\n~   <provider~\n~  android:authorities="${applicationId}.firebaseinitprovider"~\n~  android:name="com.google.firebase.provider.FirebaseInitProvider"~\n~  android:exported="false"~\n~  android:initOrder="100" />~\n~    <receiver~\n~  android:name="com.google.android.gms.measurement.AppMeasurementReceiver"~\n~  android:enabled="true">~\n~  <intent-filter>~\n~  <action android:name="com.google.android.gms.measurement.UPLOAD"/>~\n~  </intent-filter>~\n~  </receiver>~\n~~\n~  <service~\n~  android:name="com.google.android.gms.measurement.AppMeasurementService"~\n~  android:enabled="true"~\n~  android:exported="false"/>~\n~   <receiver~\n~  android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"~\n~  android:exported="true"~\n~  android:permission="com.google.android.c2dm.permission.SEND" >~\n~  <intent-filter>~\n~  <action android:name="com.google.android.c2dm.intent.RECEIVE" />~\n~  <action android:name="com.google.android.c2dm.intent.REGISTRATION" />~\n~  <category android:name="${applicationId}" />~\n~  </intent-filter>~\n~  </receiver>~\n~    <receiver~\n~  android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"~\n~  android:exported="false" />~\n~~\n~~\n~  <service~\n~  android:name="com.google.firebase.iid.FirebaseInstanceIdService"~\n~  android:exported="true">~\n~  <intent-filter android:priority="-500">~\n~  <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />~\n~  </intent-filter>~\n~  </service>~\n~)~\n~'************ Firebase Base (end) ************~\n~~\n~'************ Firebase Analytics ************~\n~AddApplicationText(~\n~  <receiver~\n~  android:name="com.google.android.gms.measurement.AppMeasurementReceiver"~\n~  android:enabled="true">~\n~  <intent-filter>~\n~  <action android:name="com.google.android.gms.measurement.UPLOAD"/>~\n~  </intent-filter>~\n~  </receiver>~\n~~\n~  <service~\n~  android:name="com.google.android.gms.measurement.AppMeasurementService"~\n~  android:enabled="true"~\n~  android:exported="false"/>~\n~~\n~  <service android:name="com.google.firebase.crash.internal.service.FirebaseCrashReceiverService"~\n~  android:process=":background_crash"/>~\n~~\n~  <service android:name="com.google.firebase.crash.internal.service.FirebaseCrashSenderService"~\n~  android:process=":background_crash"/>~\n~)~\n~'************ Firebase Analytics (end) ************~\n~~\n~'************ Firebase Ads ************~\n~AddApplicationText(~\n~  <activity~\n~  android:name="com.google.android.gms.ads.AdActivity"~\n~  android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"~\n~  android:theme="@android:style/Theme.Translucent" />~\n~  <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"~\n~  android:theme="@style/Theme.IAPTheme"/>~\n~)~\n~'************ Firebase Ads (end) ************~\n~
+﻿Version=4
 IconFile=
-NumberOfFiles=26
+NumberOfModules=7
+Module1=PackagesActivity
+Module2=SMSChannelsActivity
+Module3=Notification
+Module4=Receiver
+Module5=WelcomeActivity
+Module6=StateManager
+Module7=KeyValueStore
+Build1=Default,com.moribanxenia.easytopup
+DoNotOverwriteManifest=False
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.basic4ppc.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="14"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~SetApplicationAttribute(android:theme, "@style/MyTheme")~\n~'SetActivityAttribute(WelcomeActivity, android:theme, "@style/MyThemeTransparent")~\n~SetActivityAttribute(WelcomeActivity, android:theme, "@android:style/Theme.Translucent")~\n~~\n~AddPermission("android.permission.CALL_PHONE")~\n~~\n~AddPermission("android.permission.SEND_SMS")~\n~AddPermission("android.permission.RECEIVE_SMS")~\n~~\n~AddPermission("android.permission.READ_SMS")~\n~AddPermission("android.permission.WRITE_SMS")~\n~~\n~SetActivityAttribute(Notification, android:noHistory, "true")~\n~~\n~SetApplicationAttribute(android:name,"anywheresoftware.b4a.objects.ParseObjectWrapper$ParseApplication")~\n~~\n~AddApplicationText(<service android:name="com.parse.PushService" />~\n~<receiver android:name="com.parse.ParseBroadcastReceiver">~\n~  <intent-filter>~\n~    <action android:name="android.intent.action.BOOT_COMPLETED" />~\n~    <action android:name="android.intent.action.USER_PRESENT" />~\n~  </intent-filter>~\n~</receiver>)~\n~~\n~AddReceiverText(Receiver, ~\n~<intent-filter>~\n~    <action android:name="com.moribanxenia.easytopup.RECEIVE" />~\n~</intent-filter>)~\n~~\n~'End of default text.~\n~
+NumberOfFiles=24
 File1=balance.png
 File2=balancetransfer.png
 File3=BalanceTransferAndTopMeUpDialog.bal
-File4=banner.jpg
-File5=banner2.jpg
-File6=banner3.jpg
-File7=bonus.png
-File8=callcentre.png
-File9=callmeback.png
-File10=CallMeBackDialog.bal
-File11=checkbalance.png
-File12=ic_action_overflow.png
-File13=kyothone.png
-File14=ListDialog.bal
-File15=Main.bal
-File16=offers.json
-File17=offers.png
-File18=settings.png
-File19=SmartZawgyi.ttf
-File20=swipe.png
-File21=swipebackground.png
-File22=topmeup.png
-File23=topup.png
-File24=TopUpDialog.bal
-File25=ussd.png
-File26=whatismynumber.png
-NumberOfLibraries=18
+File4=bonus.png
+File5=callcenter.png
+File6=callmeback.png
+File7=CallMeBackDialog.bal
+File8=checkbalance.png
+File9=database
+File10=ic_action_overflow.png
+File11=ListDialog.bal
+File12=Main.bal
+File13=packages.json
+File14=settings.png
+File15=SmartZawgyi.ttf
+File16=smschannels.json
+File17=swipe.png
+File18=swipebackground.png
+File19=topmeup.png
+File20=topup.png
+File21=TopUpDialog.bal
+File22=ussd.png
+File23=vas.png
+File24=whatismynumber.png
+NumberOfLibraries=9
 Library1=core
 Library2=phone
 Library3=reflection
@@ -44,25 +46,15 @@ Library6=contentresolver
 Library7=gps
 Library8=randomaccessfile
 Library9=sql
-Library10=xmllayoutbuilder
-Library11=ahactionbar
-Library12=ahquickaction
-Library13=ahviewpager
-Library14=xtraviews
-Library15=contactpicker
-Library16=animationplus
-Library17=firebaseadmob
-Library18=firebaseanalytics
 @EndOfDesignText@
 #Region  Project Attributes 
 	#ApplicationLabel: Easy Top Up
-	#VersionCode: 3
-	#VersionName: 1.2
+	#VersionCode: 1
+	#VersionName: 1.0
 	#SupportedOrientations: portrait
 	#CanInstallToExternalStorage: False
+	#AdditionalRes: ..\res
 #End Region
-
-#AdditionalRes: ..\res
 
 #Region  Activity Attributes 
 	#FullScreen: False
@@ -75,17 +67,20 @@ Sub Process_Globals
 	Public Const AppVersion As String = pm.GetVersionName(GetPackageName)
 	Public Const AppPublisher As String = "Kyaw Swar Thwin"
 	
+	Private kvs As KeyValueStore
+	
+	Private Parse As Parse
+	Private gps1 As GPS
+	
 	Private Const ID_ACTION_HOME As Int = 0
 	Private Const ID_ACTION_OVERFLOW As Int = 99
-	
-	Private Const SIMOperators As Map = CreateMap("41401": "MPT", "41404": "MPT CDMA", "41403": "MECTel", "41405": "Ooredoo", "41406": "Telenor")
 	
 	Private tmrBanner As Timer
 	Private iCurrentBanner As Int = 0
 	
-	Private Const TYPE_PREPAID As Int = 1
-	Private Const TYPE_OFFERS As Int = 2
-	Private Const TYPE_SUPPORT As Int = 3
+	Private Const TYPE_HOME As Int = 1
+	Private Const TYPE_PLANSANDPACKAGES As Int = 2
+	Private Const TYPE_VAS As Int = 3
 	Private Const TYPE_STORES As Int = 4
 	Private Const TYPE_ABOUT As Int = 5
 	
@@ -98,53 +93,65 @@ Sub Process_Globals
 	
 	Private p As Phone
 	Public SIMOperator As String = p.GetSimOperator
-	
-	Private Const AdMobBannerID As String = "ca-app-pub-8108619796979279/4916490742"
-	Private Const AdMobInterstitialID As String = "ca-app-pub-8108619796979279/1073217140"
 End Sub
 
 Sub Globals
-	Private AppIcon As BitmapDrawable = pm.GetApplicationIcon(GetPackageName)
+	Dim AppIcon As BitmapDrawable = pm.GetApplicationIcon(GetPackageName)
 	
-	Private xml As XmlLayoutBuilder
+	Dim pi As ParseInstallation
+	Dim IsGPSCheck As Boolean = False
 	
-	Private ab As AHActionBar
-	Private overflowIcon As BitmapDrawable
-	Private menu As AHPopupMenu
+	Dim xml As XmlLayoutBuilder
 	
-	Private pnlBanner, pnlContent As Panel
-	Private asBanner() As String = Array As String("banner.jpg", "banner2.jpg", "banner3.jpg")
+	Dim ab As AHActionBar
+	Dim overflowIcon As BitmapDrawable
+	Dim menu As AHPopupMenu
 	
-	Private containerBanner, container As AHPageContainer
-	Private pagerBanner, pager As AHViewPager
-	Private tabs As AHViewPagerTabs
-	Private line As Panel
+	Dim SIMOperatorName As Map = CreateMap("41401": "MPT", "41404": "MPT CDMA", "41403": "MECTel", "41405": "Ooredoo", "41406": "Telenor")
 	
-	Private ivAppIcon As ImageView
+	Dim pnlBanner, pnlContent As Panel
+	Dim asBanner() As String = Array As String("banner.jpg", "banner2.jpg", "banner3.jpg", "banner4.jpg")
 	
-	Private Dialog As DialogView
+	Dim containerBanner, container As AHPageContainer
+	Dim pagerBanner, pager As AHViewPager
+	Dim tabs As AHViewPagerTabs
+	Dim line As Panel
 	
-	Private sCode, sPhoneNumber, sSMSBody As String
-	Private su As StringUtils
-	Private pc As PhoneCalls
-	Private ps As PhoneSms
+	Dim lblDeveloper As Label
 	
-	Private AdMobBanner As AdView
-	Private AdMobInterstitial As InterstitialAd
-	Private IsAlreadyShowAdMobInterstitial As Boolean
+	Dim ivAppIcon As ImageView
+	
+	Dim Dialog As DialogView
+	
+	Dim sCode, sPhoneNumber, sSMSBody As String
+	Dim su As StringUtils
+	Dim pc As PhoneCalls
+	Dim ps As PhoneSms
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
 	Dim pnl As Panel
 	Dim iv As ImageView
 	
-	If Not(FirstTime) Then Activity.RemoveAllViews
+	If FirstTime Then
+		If Not (File.Exists(File.DirInternal, "database")) Then File.Copy(File.DirAssets, "database", File.DirInternal, "database")
+		kvs.Initialize(File.DirInternal, "database")
+		
+		Parse.TrackOpening
+		Parse.EnableNotifications(Notification)
+		Parse.Subscribe("Broadcast", Notification)
+		StartService(Receiver)
+		gps1.Initialize("GPS")
+		If Not (StateManager.GetSetting2("IsRegistered", False)) Then Register
+	Else
+		Activity.RemoveAllViews
+	End If
 	
-	If FirstTime Or ab.IsInitialized = False Then
+	If FirstTime OR ab.IsInitialized = False Then
 		menu.Initialize("AC")
-		For i = 0 To SIMOperators.Size - 1
+		For i = 0 To SIMOperatorName.Size - 1
 			Dim ai As AHActionItem
-			ai.Initialize(i, SIMOperators.GetValueAt(i), Null)
+			ai.Initialize(i, SIMOperatorName.GetValueAt(i), Null)
 			menu.AddActionItem(ai)
 		Next
 	End If
@@ -154,8 +161,7 @@ Sub Activity_Create(FirstTime As Boolean)
 	overflowIcon.Initialize(LoadBitmap(File.DirAssets, "ic_action_overflow.png"))
 	
 	ab.Initialize("AB")
-	ab.SubTitle = SIMOperators.GetDefault(SIMOperator, "MECTel")
-	Starter.Analytics.SendEvent("test", CreateMap("SIMOperator": SIMOperators.GetDefault(SIMOperator, "MECTel")))
+	ab.SubTitle = SIMOperatorName.GetDefault(SIMOperator, "MECTel")
 	ab.AddHomeAction(ID_ACTION_HOME, AppIcon)
 	ab.AddAction(ID_ACTION_OVERFLOW, overflowIcon)
 	Activity.AddView(ab, 0, 0, 100%x, 48dip)
@@ -164,13 +170,12 @@ Sub Activity_Create(FirstTime As Boolean)
 	For i = 0 To asBanner.Length - 1
 		pnl.Initialize("")
 		iv.Initialize("")
-		iv.Bitmap = LoadBitmap(File.DirAssets, asBanner(i))
+		iv.Bitmap = kvs.GetBitmap(asBanner(i))
 		iv.Gravity = Gravity.FILL
 		pnl.AddView(iv, 0, 0, FILL_PARENT, FILL_PARENT)
 		containerBanner.AddPage(pnl, "")
 	Next
-	pagerBanner.Initialize("Banner")
-	pagerBanner.PageContainer = containerBanner
+	pagerBanner.Initialize(containerBanner, "Banner")
 	pnlBanner.AddView(pagerBanner, 0, 0, 100%x, 37%x)
 	tmrBanner.Initialize("tmrBanner", 8000)
 	tmrBanner.Enabled = True
@@ -179,14 +184,16 @@ Sub Activity_Create(FirstTime As Boolean)
 	For i = 0 To 4
 		Select i
 			Case 0
-				pnl = CreatePanel(TYPE_PREPAID)
-				container.AddPage(pnl, "Prepaid")
+				pnl = CreatePanel(TYPE_HOME)
+				container.AddPage(pnl, "Home")
 			Case 1
-				pnl = CreatePanel(TYPE_OFFERS)
-				container.AddPage(pnl, "Offers")
+				If SIMOperator <> "41404" Then
+					pnl = CreatePanel(TYPE_PLANSANDPACKAGES)
+					container.AddPage(pnl, "Plans & Packages")
+				End If
 			Case 2
-				pnl = CreatePanel(TYPE_SUPPORT)
-				container.AddPage(pnl, "Support")
+				pnl = CreatePanel(TYPE_VAS)
+				container.AddPage(pnl, "VAS")
 			Case 3
 				pnl = CreatePanel(TYPE_STORES)
 				container.AddPage(pnl, "Stores")
@@ -196,8 +203,7 @@ Sub Activity_Create(FirstTime As Boolean)
 		End Select
 	Next
 	
-	pager.Initialize("Pager")
-	pager.PageContainer = container
+	pager.Initialize(container, "Pager")
 	
 	tabs.Initialize(pager)
 	tabs.LineHeight = 5dip
@@ -214,12 +220,7 @@ Sub Activity_Create(FirstTime As Boolean)
 	
 	pnlContent.AddView(pager, 0, line.Top + line.Height, pnlContent.Width, pnlContent.Height - (line.Top + line.Height))
 	
-	AdMobBanner.Initialize2("AdMobBanner", AdMobBannerID, AdMobBanner.SIZE_SMART_BANNER)
-	Activity.AddView(AdMobBanner, 0, 100%y - 50dip, 100%x, 50dip)
-	AdMobBanner.LoadAd
-	AdMobInterstitial.Initialize("AdMobInterstitial", AdMobInterstitialID)
-	AdMobInterstitial.LoadAd
-	IsAlreadyShowAdMobInterstitial = False
+	lblDeveloper.Text = "Developed By: " & AppPublisher
 End Sub
 
 Sub Activity_Resume
@@ -230,6 +231,12 @@ Sub Activity_Resume
 	
 	If StateManager.GetSetting2("FirstTime", True) Then
 		StartActivity(WelcomeActivity)
+	Else If gps1.GPSEnabled = False AND IsGPSCheck = False Then
+		IsGPSCheck = True
+		Dialog.Options.Elements.Title.Typeface = SmartZawgyi
+		Dialog.Options.Elements.Message.Typeface = SmartZawgyi
+		Dialog.Options.Elements.Buttons.Default.Style.Typeface = SmartZawgyi
+		If Dialog.Msgbox("သတိေပးခ်က္", "ပ႐ိုမိုးရွင္း ႏွင့္ ကံစမ္းမဲအစီအစဥ္မ်ားအတြက္ GPS ဖြင့္ထားေပးရန္ လိုအပ္ပါသည္။", "အိုေက", "", "ပယ္ဖ်က္ပါ", Null) = DialogResponse.POSITIVE Then StartActivity(gps1.LocationSettingsIntent)
 	End If
 End Sub
 
@@ -241,6 +248,45 @@ Sub Activity_Pause (UserClosed As Boolean)
 	StateManager.SaveSettings
 End Sub
 
+Sub Register
+	Log("Registering")
+	Dim pid As PhoneId
+	pi = pi.GetCurrentInstallation
+	pi.Put("Manufacturer", p.Manufacturer)
+	pi.Put("ModelNumber", p.Model)
+	pi.Put("IMEI", pid.GetDeviceId)
+	pi.Put("IMSI", pid.GetSubscriberId)
+	pi.SaveEventually("Parse", 1)
+End Sub
+
+Sub Parse_DoneSave(Success As Boolean, TaskID As Int)
+	Log(Success & ":" & TaskID)
+	Select TaskID
+		Case 1
+			If Success Then
+				gps1.Start(0, 0)
+			Else
+				Register
+			End If
+		Case 2
+			If Success Then
+				Log("Registered")
+				StateManager.SetSetting("IsRegistered", True)
+			Else
+				gps1.Start(0, 0)
+			End If
+	End Select
+End Sub
+
+Sub GPS_LocationChanged (Location1 As Location)
+	gps1.Stop
+	Dim pgp As ParseGeoPoint
+	pi = pi.GetCurrentInstallation
+	pgp.Initialize(Location1.Latitude, Location1.Longitude)
+	pi.Put("Location", pgp)
+	pi.SaveEventually("Parse", 2)
+End Sub
+
 Sub AB_ItemClicked(ItemID As Int)
 	Select ItemID
 		Case ID_ACTION_OVERFLOW
@@ -250,7 +296,7 @@ End Sub
 
 Sub AC_Click (Position As Int, ActionItemID As Int)
 	Dim sOldSIMOperator As String = SIMOperator
-	SIMOperator = SIMOperators.GetKeyAt(Position)
+	SIMOperator = SIMOperatorName.GetKeyAt(Position)
 	If sOldSIMOperator <> SIMOperator Then Activity_Create(False)
 End Sub
 
@@ -266,47 +312,54 @@ End Sub
 
 Sub CreatePanel(PanelType As Int) As Panel
 	Dim pnl As Panel
-	Dim lvwPrepaid, lvwOffers, lvwSupport, lvwStores, lvwAbout As ListView
+	Dim lvwHome, lvwPlansAndPackages, lvwVAS, lvwStores, lvwAbout As ListView
 	Dim lblAppName, lblAppVersion As Label
 	
 	pnl.Initialize("")
 	Select PanelType
-		Case TYPE_PREPAID
-			lvwPrepaid.Initialize("lvwPrepaid")
-			lvwPrepaid.TwoLinesAndBitmap.Label.TextColor = Colors.DarkGray
-			lvwPrepaid.TwoLinesAndBitmap.SecondLabel.Typeface = SmartZawgyi
-			lvwPrepaid.AddTwoLinesAndBitmap2("Check Balance", "ဖုန္းလက္က်န္ေငြစစ္ေဆးရန္", LoadBitmap(File.DirAssets, "checkbalance.png"), 1)
-			lvwPrepaid.AddTwoLinesAndBitmap2("Top Up", "ဖုန္းေငြျဖည့္ရန္", LoadBitmap(File.DirAssets, "topup.png"), 2)
+		Case TYPE_HOME
+			lvwHome.Initialize("lvwHome")
+			lvwHome.TwoLinesAndBitmap.Label.TextColor = Colors.DarkGray
+			lvwHome.TwoLinesAndBitmap.SecondLabel.Typeface = SmartZawgyi
+			If SIMOperator = "41401" OR SIMOperator = "41405" OR SIMOperator = "41406" Then lvwHome.AddTwoLinesAndBitmap2("What's My Number?", "မိမိဖုန္းနံပါတ္ကိုစစ္ေဆးရန္", LoadBitmap(File.DirAssets, "whatismynumber.png"), 1)
+			lvwHome.AddTwoLinesAndBitmap2("Check Balance", "ဖုန္းလက္က်န္ေငြစစ္ေဆးရန္", LoadBitmap(File.DirAssets, "checkbalance.png"), 2)
+			lvwHome.AddTwoLinesAndBitmap2("Top Up", "ဖုန္းေငြျဖည့္ရန္", LoadBitmap(File.DirAssets, "topup.png"), 3)
+			If SIMOperator = "41405" OR SIMOperator = "41406" Then lvwHome.AddTwoLinesAndBitmap2("Balance Transfer", "ဖုန္းလက္က်န္ေငြလႊဲေျပာင္းေပးရန္", LoadBitmap(File.DirAssets, "balancetransfer.png"), 4)
+			If SIMOperator = "41405" Then lvwHome.AddTwoLinesAndBitmap2("Top Me Up", "မိမိဖုန္းအားေငြျဖည့္ေပးပါရန္", LoadBitmap(File.DirAssets, "topmeup.png"), 5)
+			If SIMOperator = "41405" OR SIMOperator = "41406" Then lvwHome.AddTwoLinesAndBitmap2("Call Me Back", "မိမိဖုန္းအားျပန္ေခၚေပးပါရန္", LoadBitmap(File.DirAssets, "callmeback.png"), 6)
+			If SIMOperator = "41405" OR SIMOperator = "41406" Then lvwHome.AddTwoLinesAndBitmap2("USSD", "ဝန္ေဆာင္မႈမ်ားကိုစီမံရန္", LoadBitmap(File.DirAssets, "ussd.png"), 7)
+			lvwHome.AddTwoLinesAndBitmap2("Call Center", "အေထြေထြဝန္ေဆာင္မႈမ်ားကိုစံုစမ္းေမးျမန္းရန္", LoadBitmap(File.DirAssets, "callcenter.png"), 8)
+			pnl.AddView(lvwHome, 0, 0, FILL_PARENT, FILL_PARENT)
+		Case TYPE_PLANSANDPACKAGES
+			lvwPlansAndPackages.Initialize("lvwPlansAndPackages")
+			lvwPlansAndPackages.TwoLinesAndBitmap.Label.TextColor = Colors.DarkGray
+			lvwPlansAndPackages.TwoLinesAndBitmap.SecondLabel.Typeface = SmartZawgyi
+			If SIMOperator = "41401" Then lvwPlansAndPackages.AddTwoLinesAndBitmap2("Swe Thahar Plan", "ေဆြသဟာအစီအစဥ္", LoadBitmap(File.DirAssets, "vas.png"), 1)
+			If SIMOperator = "41401" Then lvwPlansAndPackages.AddTwoLinesAndBitmap2("Voice Packages", "Voice Package မ်ား", LoadBitmap(File.DirAssets, "vas.png"), 2)
+			If SIMOperator = "41401" OR SIMOperator = "41405" OR SIMOperator = "41406" Then lvwPlansAndPackages.AddTwoLinesAndBitmap2("Internet Packages", "အင္တာနက္ Package မ်ား", LoadBitmap(File.DirAssets, "vas.png"), 3)
+			If SIMOperator <> "41404" AND SIMOperator <> "41405" Then lvwPlansAndPackages.AddTwoLinesAndBitmap2("Internet Service", "အင္တာနက္ဝန္ေဆာင္မႈ", LoadBitmap(File.DirAssets, "vas.png"), 4)
+			If SIMOperator = "41405" OR SIMOperator = "41406" Then lvwPlansAndPackages.AddTwoLinesAndBitmap2("Send Me APN Settings", "မိမိဖုန္းအား APN Setting မ်ားပို႔ေပးပါရန္", LoadBitmap(File.DirAssets, "settings.png"), 5)
+			pnl.AddView(lvwPlansAndPackages, 0, 0, FILL_PARENT, FILL_PARENT)
+		Case TYPE_VAS
+			lvwVAS.Initialize("lvwVAS")
+			lvwVAS.TwoLinesAndBitmap.Label.TextColor = Colors.DarkGray
+			lvwVAS.TwoLinesAndBitmap.SecondLabel.Typeface = SmartZawgyi
 			Select SIMOperator
-				Case "41401"' MPT
-					lvwPrepaid.AddTwoLinesAndBitmap2("Yu Htar", "ဖုန္းေငြေခ်းရန္", LoadBitmap(File.DirAssets, "kyothone.png"), 3)
-				Case "41405", "41406"' Ooredoo, Telenor
-					lvwPrepaid.AddTwoLinesAndBitmap2("Kyo Thone", "ဖုန္းေငြေခ်းရန္", LoadBitmap(File.DirAssets, "kyothone.png"), 3)
+				Case "41401", "41404"' MPT, MPT CDMA
+				Case "41405"' Ooredoo
+					lvwVAS.AddTwoLinesAndBitmap2("FunTone", "FunTone", LoadBitmap(File.DirAssets, "vas.png"), 1)
+				Case "41406"' Telenor
+					lvwVAS.AddTwoLinesAndBitmap2("My Tune", "My Tune", LoadBitmap(File.DirAssets, "vas.png"), 1)
+				Case Else' MECTel
+					lvwVAS.AddTwoLinesAndBitmap2("Hello Music", "Hello Music", LoadBitmap(File.DirAssets, "vas.png"), 1)
 			End Select
-			If SIMOperator <> "41404" And SIMOperator <> "41406" Then lvwPrepaid.AddTwoLinesAndBitmap2("Balance Transfer", "ဖုန္းလက္က်န္ေငြလႊဲေျပာင္းေပးရန္", LoadBitmap(File.DirAssets, "balancetransfer.png"), 4)
-			If SIMOperator = "41405" Then lvwPrepaid.AddTwoLinesAndBitmap2("Top Me Up", "မိမိဖုန္းအားေငြျဖည့္ေပးပါရန္", LoadBitmap(File.DirAssets, "topmeup.png"), 5)
-			pnl.AddView(lvwPrepaid, 0, 0, FILL_PARENT, FILL_PARENT)
-		Case TYPE_OFFERS
-			lvwOffers.Initialize("lvwOffers")
-			lvwOffers.TwoLinesAndBitmap.Label.TextColor = Colors.DarkGray
-			lvwOffers.TwoLinesAndBitmap.SecondLabel.Typeface = SmartZawgyi
-			lvwOffers.AddTwoLinesAndBitmap2("Plans", "Plan မ်ား", LoadBitmap(File.DirAssets, "offers.png"), 1)
-'			lvwOffers.AddTwoLinesAndBitmap2("Voice Packs", "Voice Pack မ်ား", LoadBitmap(File.DirAssets, "offers.png"), 2)
-'			lvwOffers.AddTwoLinesAndBitmap2("SMS Packs", "SMS Pack မ်ား", LoadBitmap(File.DirAssets, "offers.png"), 3)
-			lvwOffers.AddTwoLinesAndBitmap2("Data Packs", "Data Pack မ်ား", LoadBitmap(File.DirAssets, "offers.png"), 4)
-			lvwOffers.AddTwoLinesAndBitmap2("Special Packs", "Special Pack မ်ား", LoadBitmap(File.DirAssets, "offers.png"), 5)
-			lvwOffers.AddTwoLinesAndBitmap2("Value Added Services", "ထပ္ေဆာင္းဝန္ေဆာင္မႈမ်ား", LoadBitmap(File.DirAssets, "offers.png"), 6)
-			pnl.AddView(lvwOffers, 0, 0, FILL_PARENT, FILL_PARENT)
-		Case TYPE_SUPPORT
-			lvwSupport.Initialize("lvwSupport")
-			lvwSupport.TwoLinesAndBitmap.Label.TextColor = Colors.DarkGray
-			lvwSupport.TwoLinesAndBitmap.SecondLabel.Typeface = SmartZawgyi
-			If SIMOperator = "41401" Or SIMOperator = "41405" Or SIMOperator = "41406" Then lvwSupport.AddTwoLinesAndBitmap2("Call Me Back", "မိမိဖုန္းအားျပန္ေခၚေပးပါရန္", LoadBitmap(File.DirAssets, "callmeback.png"), 1)
-			If SIMOperator = "41401" Or SIMOperator = "41405" Or SIMOperator = "41406" Then lvwSupport.AddTwoLinesAndBitmap2("What's My Number?", "မိမိဖုန္းနံပါတ္ကိုစစ္ေဆးရန္", LoadBitmap(File.DirAssets, "whatismynumber.png"), 2)
-			If SIMOperator = "41401" Or SIMOperator = "41406" Then lvwSupport.AddTwoLinesAndBitmap2("APN Settings", "APN Setting မ်ားရယူရန္", LoadBitmap(File.DirAssets, "settings.png"), 3)
-			If SIMOperator = "41401" Or SIMOperator = "41405" Or SIMOperator = "41406" Then lvwSupport.AddTwoLinesAndBitmap2("USSD", "ဝန္ေဆာင္မႈမ်ားကိုစီမံရန္", LoadBitmap(File.DirAssets, "ussd.png"), 4)
-			lvwSupport.AddTwoLinesAndBitmap2("Call Centre", "အေထြေထြဝန္ေဆာင္မႈမ်ားကိုစံုစမ္းေမးျမန္းရန္", LoadBitmap(File.DirAssets, "callcentre.png"), 5)
-			pnl.AddView(lvwSupport, 0, 0, FILL_PARENT, FILL_PARENT)
+			If SIMOperator = "41405" OR SIMOperator = "41406" Then lvwVAS.AddTwoLinesAndBitmap2("SMS Channels", "SMS Channel မ်ား", LoadBitmap(File.DirAssets, "vas.png"), 2)
+			If SIMOperator = "41405" Then lvwVAS.AddTwoLinesAndBitmap2("CLIR", "CLIR", LoadBitmap(File.DirAssets, "vas.png"), 3)
+			If SIMOperator = "41401" OR SIMOperator = "41404" Then lvwVAS.AddTwoLinesAndBitmap2("Call Forwarding", "Call Forwarding", LoadBitmap(File.DirAssets, "vas.png"), 4)
+			If SIMOperator = "41401" OR SIMOperator = "41404" Then lvwVAS.AddTwoLinesAndBitmap2("Call Waiting", "Call Waiting", LoadBitmap(File.DirAssets, "vas.png"), 5)
+			If SIMOperator <> "41404" AND SIMOperator <> "41405" Then lvwVAS.AddTwoLinesAndBitmap2("Missed Call Alert", "Missed Call Alert", LoadBitmap(File.DirAssets, "vas.png"), 6)
+			If SIMOperator <> "41404" AND SIMOperator <> "41405" Then lvwVAS.AddTwoLinesAndBitmap2("Voice Mail", "Voice Mail", LoadBitmap(File.DirAssets, "vas.png"), 7)
+			pnl.AddView(lvwVAS, 0, 0, FILL_PARENT, FILL_PARENT)
 		Case TYPE_STORES
 			lvwStores.Initialize("lvwStores")
 			lvwStores.TwoLinesLayout.ItemHeight = 121dip
@@ -321,10 +374,7 @@ Sub CreatePanel(PanelType As Int) As Panel
 			lvwStores.AddTwoLines2("မေကြးေရွာ့ပင္းေမာ(လ္)", "အမွတ္(၈)၊ ဗိုလ္ခ်ဳပ္လမ္း၊ " & CRLF & "ပြဲႀကိဳရပ္ကြက္၊ မေကြးၿမိဳ႕။" & CRLF & "ဖုန္း ၀၆၃-၂၆၇၁၁၊ ၀၆၃-၂၇၂၂၃။", 1)
 			lvwStores.AddTwoLines2("ေရႊဧရာ (မေကြး-၁)", "အမွတ္(၁၀)၊ ျပည္ေတာ္သာလမ္း၊ " & CRLF & "ေဈးလယ္စိုးရပ္ကြက္၊ မေကြးၿမိဳ႕။" & CRLF & "ဖုန္း ၀၆၃-၂၅၄၅၂၊ ၀၆၃-၂၆၁၇၁။", 2)
 			lvwStores.AddTwoLines2("ေရႊဧရာ (မေကြး-၂)", "အမွတ္(၃၆)၊ ဗိုလ္ခ်ဳပ္လမ္း ႏွင့္ မဲထီးလမ္းေထာင့္၊ " & CRLF & "ရြာသစ္ရပ္ကြက္၊ မေကြးၿမိဳ႕။" & CRLF & "ဖုန္း ၀၆၃-၂၃၆၉၂၊ ၀၆၃-၂၈၁၉၃။", 3)
-			lvwStores.AddTwoLines2("ေရႊဧရာ (မင္းဘူး-၁)", "အမွတ္(၈၁၂)၊ မင္းဘူး-စကုလမ္း၊ " & CRLF & "အမွတ္(၃)ရပ္ကြက္၊ မင္းဘူးၿမိဳ႕။" & CRLF & "ဖုန္း ၀၆၅-၂၁၅၄၇။", 4)
-			lvwStores.AddTwoLines2("ေရႊဧရာ (မင္းဘူး-၂)", "အမွတ္(၉၄၈)၊ ေစ်းသစ္လမ္း ႏွင့္ ယင္းမာလမ္းေထာင့္၊ " & CRLF & "အမွတ္(၄)ရပ္ကြက္၊ မင္းဘူးၿမိဳ႕။" & CRLF & "ဖုန္း ၀၉-၃၀၇၄၀၁၀၁။", 5)
-			lvwStores.AddTwoLines2("ေရႊဧရာ တယ္လီေနာ ျဖန္႔ခ်ိေရး (မေကြး)", "တတိယထပ္၊ " & CRLF & "မေကြးေရွာ့ပင္းေမာ(လ္)၊ မေကြးၿမိဳ႕။" & CRLF & "ဖုန္း ၀၆၃-၂၈၄၂၃၊ ၀၉-၇၇၇၇၇၉၉၀၀။", 6)
-			lvwStores.AddTwoLines2("ေရႊဧရာ တယ္လီေနာ ျဖန္႔ခ်ိေရး (မင္းဘူး)", "အမွတ္(၁၂၈၁)၊ ဆင္ေဂါင္းလမ္း၊ " & CRLF & "အမွတ္(၄)ရပ္ကြက္၊ မင္းဘူးၿမိဳ႕။" & CRLF & "ဖုန္း ၀၆၅-၂၁၅၅၈၊ ၀၉-၇၇၇၇၇၈၈၀၀။", 7)
+			lvwStores.AddTwoLines2("ေရႊဧရာ (မင္းဘူး)", "အမွတ္(၈၁၂)၊ မင္းဘူး-စကုလမ္း၊ " & CRLF & "အမွတ္(၃)ရပ္ကြက္၊ မင္းဘူးၿမိဳ႕။" & CRLF & "ဖုန္း ၀၆၅-၂၁၅၄၇။", 4)
 			pnl.AddView(lvwStores, 0, 0, FILL_PARENT, FILL_PARENT)
 		Case TYPE_ABOUT
 			ivAppIcon.Initialize("")
@@ -355,8 +405,7 @@ Sub CreatePanel(PanelType As Int) As Panel
 			lvwAbout.SingleLineLayout.Label.TextSize = lblAppVersion.TextSize
 			lvwAbout.SingleLineLayout.Label.TextColor = Colors.DarkGray
 			lvwAbout.AddSingleLine2("Developer: " & AppPublisher, 1)
-			lvwAbout.AddSingleLine2("Like Us On Facebook", 2)
-			lvwAbout.AddSingleLine2("Rate This App", 3)
+			lvwAbout.AddSingleLine2("Contact: 09-450049060, 09-43165226", 2)
 			pnl.AddView(lvwAbout, 0, line.Top + line.Height, FILL_PARENT, FILL_PARENT)
 	End Select
 	
@@ -366,7 +415,7 @@ End Sub
 Sub Pager_PageChanged (Position As Int)
 	iCurrentPage = Position
 	pager.RequestFocus
-	If Position = 4 Then
+	If Position = 3 OR Position = 4 Then
 		Dim ap, ap2 As AnimationPlus
 		Dim a As AnimationSet
 		ap.InitializeAlpha("", 0, 1)
@@ -383,67 +432,69 @@ Sub Pager_PageChanged (Position As Int)
 	End If
 End Sub
 
-Sub lvwPrepaid_ItemClick (Position As Int, Value As Object)
-	ShowAdMobInterstitial
+Sub lvwHome_ItemClick (Position As Int, Value As Object)
 	Select Value
-		Case 1 : CheckBalance
-		Case 2 : TopUp
-		Case 3 : KyoThone
+		Case 1 : WhatIsMyNumber
+		Case 2 : CheckBalance
+		Case 3 : TopUp
 		Case 4 : BalanceTransfer
 		Case 5 : TopMeUp
+		Case 6 : CallMeBack
+		Case 7 : USSD
+		Case 8 : CallCenter
 	End Select
 End Sub
 
+Sub WhatIsMyNumber
+	Select SIMOperator
+		Case "41401" : sCode = "*888#"' MPT
+		Case "41405" : sCode = "*133*5#"' Ooredoo
+		Case "41406" : sCode = "*97#"' Telenor
+	End Select
+	StartActivity(pc.Call(su.EncodeUrl(sCode, "UTF8")))
+End Sub
+
 Sub CheckBalance
-	Dim iResult As Int
+	Dim iResult As Int = 0
 	
 	sCode = ""
 	
-	Dialog.Options.Dimensions.Width = 100%x
-	Dialog.Options.Dimensions.Height = 121dip
-	Dialog.Options.Elements.Title.Typeface = SmartZawgyi
-	Dialog.Options.Elements.Buttons.Default.Style.Typeface = SmartZawgyi
-	Dim DialogLayout As DialogViewLayout = Dialog.LoadLayout("ListDialog")
-	Dim lvwList As ListView = DialogLayout.Views.Get("lvwList")
-	
-	lvwList.TwoLinesAndBitmap.Label.Height = 60dip
-	lvwList.TwoLinesAndBitmap.Label.Typeface = SmartZawgyi
-	lvwList.TwoLinesAndBitmap.Label.Gravity = Gravity.CENTER_VERTICAL
-	lvwList.TwoLinesAndBitmap.Label.TextColor = Colors.DarkGray
-	
-	lvwList.AddTwoLinesAndBitmap("ဖုန္းလက္က်န္ေငြ", "", LoadBitmap(File.DirAssets, "balance.png"))
-	lvwList.AddTwoLinesAndBitmap("အင္တာနက္ႏွင့္အပိုဆုမ်ား", "", LoadBitmap(File.DirAssets, "bonus.png"))
-	
-	iResult = DialogLayout.Show("ဖုန္းလက္က်န္ေငြစစ္ေဆးရန္", "", "", "ပယ္ဖ်က္ပါ", Null)
-	Select iResult
-		Case DialogResponse.CANCEL : Return
-		Case 0
-			Select SIMOperator
-				Case "41401", "41405", "41406" : sCode = "*124#"' MPT, Ooredoo, Telenor
-				Case "41404" : sCode = "*162"' MPT CDMA
-				Case Else : sCode = "*123#"' MECTel
-			End Select
-		Case 1
-			Select SIMOperator
-				Case "41401", "41404" : sPhoneNumber = "1331" : sSMSBody = "QER"' MPT, MPT CDMA
-				Case "41405" : sPhoneNumber = "2230" : sSMSBody = "b"' Ooredoo
-				Case "41406" : sCode = "*124*1#"' Telenor
-				Case Else : sPhoneNumber = "233" : sSMSBody = "BAL"' MECTel
-			End Select
-	End Select
+	If SIMOperator = "41401" OR SIMOperator = "41404" OR SIMOperator = "41405" OR SIMOperator = "41406" Then
+		Dialog.Options.Dimensions.Width = 100%x
+		Dialog.Options.Dimensions.Height = 121dip
+		Dialog.Options.Elements.Title.Typeface = SmartZawgyi
+		Dialog.Options.Elements.Buttons.Default.Style.Typeface = SmartZawgyi
+		Dim DialogLayout As DialogViewLayout = Dialog.LoadLayout("ListDialog")
+		Dim lvwList As ListView = DialogLayout.Views.Get("lvwList")
+		
+		lvwList.TwoLinesAndBitmap.Label.Height = 60dip
+		lvwList.TwoLinesAndBitmap.Label.Typeface = SmartZawgyi
+		lvwList.TwoLinesAndBitmap.Label.Gravity = Gravity.CENTER_VERTICAL
+		lvwList.TwoLinesAndBitmap.Label.TextColor = Colors.DarkGray
+		
+		lvwList.AddTwoLinesAndBitmap("ဖုန္းလက္က်န္ေငြ", "", LoadBitmap(File.DirAssets, "balance.png"))
+		lvwList.AddTwoLinesAndBitmap("အင္တာနက္ႏွင့္အပိုဆုမ်ား", "", LoadBitmap(File.DirAssets, "bonus.png"))
+		
+		iResult = DialogLayout.Show("ဖုန္းလက္က်န္ေငြစစ္ေဆးရန္", "", "", "ပယ္ဖ်က္ပါ", Null)
+		If iResult = DialogResponse.CANCEL Then Return
+	End If
+	If iResult = 0 Then
+		Select SIMOperator
+			Case "41401", "41405", "41406" : sCode = "*124#"' MPT, Ooredoo, Telenor
+			Case "41404" : sCode = "*162"' MPT CDMA
+			Case Else : sCode = "*123#"' MECTel
+		End Select
+	Else
+		Select SIMOperator
+			Case "41401", "41404" : sPhoneNumber = "1331" : sSMSBody = "QER"' MPT, MPT CDMA
+			Case "41405" : sPhoneNumber = "2230" : sSMSBody = "b"' Ooredoo
+			Case "41406" : sCode = "*124*1#"' Telenor
+		End Select
+	End If
 	If sCode = "" Then
 		ps.Send(sPhoneNumber, sSMSBody)
 	Else
 		StartActivity(pc.Call(su.EncodeUrl(sCode, "UTF8")))
-	End If
-End Sub
-
-Sub lvwList_ItemClick (Position As Int, Value As Object)
-	Dim lvw As ListView = Sender
-	If lvw.Tag = "Value" Then
-		Dialog.Dismiss(Value)
-	Else
-		Dialog.Dismiss(Position)
 	End If
 End Sub
 
@@ -452,7 +503,7 @@ Sub TopUp
 	Dialog.Options.Elements.Title.Typeface = SmartZawgyi
 	Dialog.Options.Elements.Buttons.Default.Style.Typeface = SmartZawgyi
 	Dim DialogLayout As DialogViewLayout = Dialog.LoadLayout("TopUpDialog")
-	Dim optTopUpOwn As RadioButton = DialogLayout.Views.Get("optTopUpOwn")
+	Dim optTopUpSelf As RadioButton = DialogLayout.Views.Get("optTopUpSelf")
 	Dim optTopUpOther As RadioButton = DialogLayout.Views.Get("optTopUpOther")
 	Dim lblPIN As Label = DialogLayout.Views.Get("lblPIN")
 	Dim edtPIN As EditText = DialogLayout.Views.Get("edtPIN")
@@ -468,9 +519,9 @@ Sub TopUp
 		Case Else : sCode = "*124*"' MECTel
 	End Select
 	
-	optTopUpOwn.Text = "မိမိဖုန္း"
+	optTopUpSelf.Text = "မိမိဖုန္း"
 	
-	If SIMOperator <> "41401" And SIMOperator <> "41405" And SIMOperator <> "41406" Then optTopUpOther.Enabled = False
+	If SIMOperator <> "41401" AND SIMOperator <> "41405" AND SIMOperator <> "41406" Then optTopUpOther.Enabled = False
 	optTopUpOther.Text = "အျခားဖုန္း"
 	
 	lblPIN.Text = "Top Up ကတ္မွ PIN နံပါတ္႐ိုက္ထည့္ပါ။"
@@ -479,17 +530,17 @@ Sub TopUp
 	
 	btnContactPicker.Background = xml.GetDrawable("17301547")
 	
-	Do Until (optTopUpOwn.Checked = True And edtPIN.Text.Length > 0) Or (optTopUpOther.Checked = True And (edtPIN.Text.Length > 0 And edtPhoneNumber.Text.Length > 0))
+	Do Until (optTopUpSelf.Checked = True AND edtPIN.Text.Length > 0) OR (optTopUpOther.Checked = True AND (edtPIN.Text.Length > 0 AND edtPhoneNumber.Text.Length > 0))
 		If DialogLayout.Show("ဖုန္းေငြျဖည့္ရန္", "ေငြျဖည့္ပါ", "", "ပယ္ဖ်က္ပါ", Null) = DialogResponse.CANCEL Then Return
 		If edtPIN.Text.Length = 0 Then
 			edtPIN.RequestFocus
 			ToastMessageShow("PIN နံပါတ္ေနရာကို ကြက္လပ္ထား၍မရပါ။", True)
-		Else If optTopUpOther.Checked = True And edtPhoneNumber.Text.Length = 0 Then
+		Else If optTopUpOther.Checked = True AND edtPhoneNumber.Text.Length = 0 Then
 			edtPhoneNumber.RequestFocus
 			ToastMessageShow("ဖုန္းနံပါတ္ေနရာကို ကြက္လပ္ထား၍မရပါ။", True)
 		End If
 	Loop
-	If optTopUpOwn.Checked Then
+	If optTopUpSelf.Checked Then
 		StartActivity(pc.Call(su.EncodeUrl(sCode & edtPIN.Text & "#", "UTF8")))
 	Else If optTopUpOther.Checked Then
 		If SIMOperator = "41405" Then' Ooredoo
@@ -500,7 +551,7 @@ Sub TopUp
 	End If
 End Sub
 
-Sub optTopUpOwn_CheckedChange(Checked As Boolean)
+Sub optTopUpSelf_CheckedChange(Checked As Boolean)
 	If Checked Then
 		Dialog.Views.Label("lblPhoneNumber").Visible = False
 		Dialog.Views.EditText("edtPhoneNumber").Visible = False
@@ -529,15 +580,6 @@ Sub cp_Result (Success As Boolean, DisplayName As String, PhoneNumber As String,
 	End If
 End Sub
 
-Sub KyoThone
-	Select SIMOperator
-		Case "41401" : sCode = "*800#"' MPT
-		Case "41405" : sCode = "*125#"' Ooredoo
-		Case "41406" : sCode = "*500#"' Telenor
-	End Select
-	StartActivity(pc.Call(su.EncodeUrl(sCode, "UTF8")))
-End Sub
-
 Sub BalanceTransfer
 	Dialog.Options.Dimensions.Width = 100%x
 	Dialog.Options.Elements.Title.Typeface = SmartZawgyi
@@ -552,9 +594,8 @@ Sub BalanceTransfer
 	DialogLayout.Views.Panel("pnl").Height = edtAmount.Top + edtAmount.Height + 10dip
 	
 	Select SIMOperator
-		Case "41401" : sCode = "*223*"' MPT
 		Case "41405" : sCode = "*155*"' Ooredoo
-		Case Else : sCode = "*110*"' MECTel
+		Case "41406" : sCode = "*979*2*4*"' Telenor
 	End Select
 	
 	lblPhoneNumber.Text = "ေငြလက္ခံမည့္သူ၏ဖုန္းနံပါတ္႐ိုက္ထည့္ပါ။"
@@ -563,7 +604,7 @@ Sub BalanceTransfer
 	
 	lblAmount.Text = "လႊဲေျပာင္းေပးလိုေသာေငြပမာဏ႐ိုက္ထည့္ပါ။"
 	
-	Do Until edtPhoneNumber.Text.Length > 0 And edtAmount.Text.Length > 0
+	Do Until edtPhoneNumber.Text.Length > 0 AND edtAmount.Text.Length > 0
 		If DialogLayout.Show("ဖုန္းလက္က်န္ေငြလႊဲေျပာင္းေပးရန္", "ေငြလႊဲပါ", "", "ပယ္ဖ်က္ပါ", Null) = DialogResponse.CANCEL Then Return
 		If edtPhoneNumber.Text.Length = 0 Then
 			edtPhoneNumber.RequestFocus
@@ -573,10 +614,10 @@ Sub BalanceTransfer
 			ToastMessageShow("ေငြပမာဏေနရာကို ကြက္လပ္ထား၍မရပါ။", True)
 		End If
 	Loop
-		If SIMOperator = "41406" Then' Telenor
-			StartActivity(pc.Call(su.EncodeUrl(sCode & edtPhoneNumber.Text & "*" & edtAmount.Text & "#", "UTF8")))
+		If SIMOperator = "41405" Then' Ooredoo
+			StartActivity(pc.Call(su.EncodeUrl(sCode & edtAmount.Text & "*" & edtPhoneNumber.Text & "*1#", "UTF8")))
 		Else
-			StartActivity(pc.Call(su.EncodeUrl(sCode & edtAmount.Text & "*" & edtPhoneNumber.Text & "#", "UTF8")))
+			StartActivity(pc.Call(su.EncodeUrl(sCode & edtPhoneNumber.Text & "*" & edtAmount.Text & "*1#", "UTF8")))
 		End If
 End Sub
 
@@ -603,7 +644,7 @@ Sub TopMeUp
 	
 	lblAmount.Text = "ျဖည့္ေပးေစလိုေသာေငြပမာဏ႐ိုက္ထည့္ပါ။"
 	
-	Do Until edtPhoneNumber.Text.Length > 0 And edtAmount.Text.Length > 0
+	Do Until edtPhoneNumber.Text.Length > 0 AND edtAmount.Text.Length > 0
 		If DialogLayout.Show("မိမိဖုန္းအားေငြျဖည့္ေပးပါရန္", "ပို႔ပါ", "", "ပယ္ဖ်က္ပါ", Null) = DialogResponse.CANCEL Then Return
 		If edtPhoneNumber.Text.Length = 0 Then
 			edtPhoneNumber.RequestFocus
@@ -616,83 +657,91 @@ Sub TopMeUp
 	StartActivity(pc.Call(su.EncodeUrl(sCode & edtPhoneNumber.Text & "*" & edtAmount.Text & "#", "UTF8")))
 End Sub
 
-Sub lvwOffers_ItemClick (Position As Int, Value As Object)
-	ShowAdMobInterstitial
-	Select Value
-		Case 1 : Plans
-		Case 2 : Packs("Voice Packs", "voicePacks")
-		Case 3 : Packs("SMS Packs", "smsPacks")
-		Case 4 : Packs("Data Packs", "dataPacks")
-		Case 5 : Packs("Special Packs", "specialPacks")
-		Case 6 : ValueAddedServices
-	End Select
-End Sub
-
-Sub Plans
-	OffersActivity.Title = "Plans"
-	OffersActivity.Offer = "plans"
-	StartActivity(OffersActivity)
-End Sub
-
-Sub Packs(Title As String, Pack As String)
-	OffersActivity.Title = Title
-	OffersActivity.Offer = Pack
-	StartActivity(OffersActivity)
-End Sub
-
-Sub ValueAddedServices
-	Dim iResult As Int
-	
+Sub CallMeBack
 	Dialog.Options.Dimensions.Width = 100%x
-	Dialog.Options.Dimensions.Height = 303dip
 	Dialog.Options.Elements.Title.Typeface = SmartZawgyi
 	Dialog.Options.Elements.Buttons.Default.Style.Typeface = SmartZawgyi
-	Dim DialogLayout As DialogViewLayout = Dialog.LoadLayout("ListDialog")
-	Dim lvwList As ListView = DialogLayout.Views.Get("lvwList")
+	Dim DialogLayout As DialogViewLayout = Dialog.LoadLayout("CallMeBackDialog")
+	Dim lblPhoneNumber As Label = DialogLayout.Views.Get("lblPhoneNumber")
+	Dim edtPhoneNumber As EditText = DialogLayout.Views.Get("edtPhoneNumber")
+	Dim btnContactPicker As Button = DialogLayout.Views.Get("btnContactPicker")
 	
-	lvwList.TwoLinesAndBitmap.Label.Height = 60dip
-	lvwList.TwoLinesAndBitmap.Label.Typeface = SmartZawgyi
-	lvwList.TwoLinesAndBitmap.Label.Gravity = Gravity.CENTER_VERTICAL
-	lvwList.TwoLinesAndBitmap.Label.TextColor = Colors.DarkGray
+	DialogLayout.Views.Panel("pnl").Height = edtPhoneNumber.Top + edtPhoneNumber.Height + 10dip
 	
-	If SIMOperator <> "41404" And SIMOperator <> "41405" Then lvwList.AddTwoLinesAndBitmap2("အင္တာနက္ဝန္ေဆာင္မႈ", "", LoadBitmap(File.DirAssets, "offers.png"), 1)
 	Select SIMOperator
-		'Case "41401", "41404"' MPT, MPT CDMA
-		Case "41405"' Ooredoo
-			lvwList.AddTwoLinesAndBitmap2("FunTone", "", LoadBitmap(File.DirAssets, "offers.png"), 2)
-		Case "41406"' Telenor
-			lvwList.AddTwoLinesAndBitmap2("My Tune", "", LoadBitmap(File.DirAssets, "offers.png"), 2)
-		Case Else' MECTel
-			lvwList.AddTwoLinesAndBitmap2("Hello Music", "", LoadBitmap(File.DirAssets, "offers.png"), 2)
+		Case "41405" : sCode = "*122*"' Ooredoo
+		Case "41406" : sCode = "*979*3*2*"' Telenor
 	End Select
-	If SIMOperator = "41405" Then lvwList.AddTwoLinesAndBitmap2("CLIR", "", LoadBitmap(File.DirAssets, "offers.png"), 3)
-	If SIMOperator = "41401" Or SIMOperator = "41404" Then lvwList.AddTwoLinesAndBitmap2("Call Forwarding", "", LoadBitmap(File.DirAssets, "offers.png"), 4)
-	If SIMOperator = "41401" Or SIMOperator = "41404" Then lvwList.AddTwoLinesAndBitmap2("Call Waiting", "", LoadBitmap(File.DirAssets, "offers.png"), 5)
-	If SIMOperator <> "41404" And SIMOperator <> "41405" Then lvwList.AddTwoLinesAndBitmap2("Missed Call Alert", "", LoadBitmap(File.DirAssets, "offers.png"), 6)
-	If SIMOperator <> "41404" And SIMOperator <> "41405" Then lvwList.AddTwoLinesAndBitmap2("Voice Mail", "", LoadBitmap(File.DirAssets, "offers.png"), 7)
 	
-	lvwList.Tag = "Value"
+	lblPhoneNumber.Text = "ျပန္ေခၚေစလိုေသာဖုန္းနံပါတ္႐ိုက္ထည့္ပါ။"
 	
-	iResult = DialogLayout.Show("ထပ္ေဆာင္းဝန္ေဆာင္မႈမ်ား", "", "", "ပယ္ဖ်က္ပါ", Null)
-	Select iResult
-		Case DialogResponse.CANCEL : Return
-		Case 1 : DataService
-		Case 2 : RingbackTone
-		Case 3 : CLIR
-		Case 4 : CallForwarding
-		Case 5 : CallWaiting
-		Case 6 : MissedCallAlert
-		Case 7 : VoiceMail
+	btnContactPicker.Background = xml.GetDrawable("17301547")
+	
+	Do Until edtPhoneNumber.Text.Length > 0
+		If DialogLayout.Show("မိမိဖုန္းအားျပန္ေခၚေပးပါရန္", "ပို႔ပါ", "", "ပယ္ဖ်က္ပါ", Null) = DialogResponse.CANCEL Then Return
+		If edtPhoneNumber.Text.Length = 0 Then
+			edtPhoneNumber.RequestFocus
+			ToastMessageShow("ဖုန္းနံပါတ္ေနရာကို ကြက္လပ္ထား၍မရပါ။", True)
+		End If
+	Loop
+	StartActivity(pc.Call(su.EncodeUrl(sCode & edtPhoneNumber.Text & "#", "UTF8")))
+End Sub
+
+Sub USSD
+	Select SIMOperator
+		Case "41405" : sCode = "*133#"' Ooredoo
+		Case "41406" : sCode = "*979#"' Telenor
+	End Select
+	StartActivity(pc.Call(su.EncodeUrl(sCode, "UTF8")))
+End Sub
+
+Sub CallCenter
+	Select SIMOperator
+		Case "41401", "41404" : Call(Array As String("106"))' MPT, MPT CDMA
+		Case "41405" : Call(Array As String("234", "09970000234"))' Ooredoo
+		Case "41406" : Call(Array As String("979", "09790097900"))' Telenor
+		Case Else : Call(Array As String("1212"))' MECTel
 	End Select
 End Sub
 
-Sub DataService
+Sub lvwList_ItemClick (Position As Int, Value As Object)
+	Dialog.Dismiss(Position)
+End Sub
+
+Sub lvwPlansAndPackages_ItemClick (Position As Int, Value As Object)
+	Select Value
+		Case 1 : SweThaharPlan
+		Case 2 : ShowPackages("Voice Packages", "voicePackages")
+		Case 3 : ShowPackages("Internet Packages", "internetPackages")
+		Case 4 : InternetService
+		Case 5 : SendMeAPNSettings
+	End Select
+End Sub
+
+Sub SweThaharPlan
+	Plan("ေဆြသဟာအစီအစဥ္", "ဤအစီအစဥ္ကို အသံုးျပဳျခင္းအားျဖင့္<br>- ျပည္တြင္းဖုန္းေခၚဆိုမႈမ်ားအတြက္ တစ္မိနစ္လွ်င္ ၃၅ က်ပ္၊<br>- SMS တစ္ေစာင္ ေပးပို႔လွ်င္ ၁၅ က်ပ္၊<br>- အင္တာနက္အသံုးျပဳခမွာ တစ္မီဂါဘိုက္လွ်င္ ၁၅ က်ပ္ႏႈန္းသာ က်သင့္မည္ျဖစ္သည္။<br>- အက်ံဳးဝင္သည့္ကာလမွာ ရက္ ၃၀ ျဖစ္ၿပီး<br>- ဝန္ေဆာင္ခ အခမဲ့ ျဖစ္ပါသည္။", "1332", "SWE", "UNSUB SWE")
+End Sub
+
+Sub ShowPackages(Title As String, Package As String)
+	Dialog.Options.Elements.Title.Typeface = SmartZawgyi
+	Dialog.Options.Elements.Message.Typeface = SmartZawgyi
+	Dialog.Options.Elements.Buttons.Default.Style.Typeface = SmartZawgyi
+	Select SIMOperator
+		Case "41401"' MPT
+			If Dialog.Msgbox("သတိေပးခ်က္", "- ဤဝန္ေဆာင္မႈကို အသံုးျပဳရန္အတြက္ ေဆြသဟာအစီအစဥ္ ရယူထားရန္ လိုအပ္ပါသည္။", "အိုေက", "", "ပယ္ဖ်က္ပါ", Null) = DialogResponse.CANCEL Then Return
+	End Select
+	PackagesActivity.Title = Title
+	PackagesActivity.Package = Package
+	StartActivity(PackagesActivity)
+End Sub
+
+Sub InternetService
 	Dim sName, sDescription, sPhoneNumber, sActivation, sDeactivation As String
 	
 	sName = "အင္တာနက္ဝန္ေဆာင္မႈ"
 	Select SIMOperator
 		Case "41401"' MPT
-			sDescription = "- ဤဝန္ေဆာင္မႈသည္ အင္တာနက္အသံုးျပဳမႈ စတင္ရန္အတြက္ ျဖစ္သည္။<br>- ဝန္ေဆာင္ခ အခမဲ့ ျဖစ္သည္။"
+			sDescription = "- ဤဝန္ေဆာင္မႈသည္ အင္တာနက္အသံုးျပဳမႈ စတင္ရန္အတြက္ ျဖစ္သည္။<br>- ဝန္ေဆာင္ခ ၁၀၀၀၀ က်ပ္ က်သင့္မည္ျဖစ္ၿပီး၊ ဖုန္းလက္က်န္ေငြထဲမွ ေကာက္ခံသြားပါလိမ့္မည္။"
 			sPhoneNumber = "1331"
 			sActivation = "Orderdata service"
 		Case "41406"' Telenor
@@ -707,6 +756,26 @@ Sub DataService
 	End Select
 	
 	Plan(sName, sDescription, sPhoneNumber, sActivation, sDeactivation)
+End Sub
+
+Sub SendMeAPNSettings
+	Select SIMOperator
+		Case "41405" : sCode = "*133*6*1#"' Ooredoo
+		Case "41406" : sCode = "*979*3*1*3#"' Telenor
+	End Select
+	StartActivity(pc.Call(su.EncodeUrl(sCode, "UTF8")))
+End Sub
+
+Sub lvwVAS_ItemClick (Position As Int, Value As Object)
+	Select Value
+		Case 1 : RingbackTone
+		Case 2 : SMSChannels
+		Case 3 : CLIR
+		Case 4 : CallForwarding
+		Case 5 : CallWaiting
+		Case 6 : MissedCallAlert
+		Case 7 : VoiceMail
+	End Select
 End Sub
 
 Sub RingbackTone
@@ -734,6 +803,10 @@ Sub RingbackTone
 	End Select
 	
 	VAS(sName, sDescription, sPhoneNumber, sSubscription, sUnsubscription)
+End Sub
+
+Sub SMSChannels
+	StartActivity(SMSChannelsActivity)
 End Sub
 
 Sub CLIR
@@ -844,123 +917,53 @@ Sub VoiceMail
 	VAS(sName, sDescription, sPhoneNumber, sSubscription, sUnsubscription)
 End Sub
 
-Sub lvwSupport_ItemClick (Position As Int, Value As Object)
-	ShowAdMobInterstitial
-	Select Value
-		Case 1 : CallMeBack
-		Case 2 : WhatIsMyNumber
-		Case 3 : APNSettings
-		Case 4 : USSD
-		Case 5 : CallCentre
-	End Select
-End Sub
-
-Sub CallMeBack
-	Dialog.Options.Dimensions.Width = 100%x
-	Dialog.Options.Elements.Title.Typeface = SmartZawgyi
-	Dialog.Options.Elements.Buttons.Default.Style.Typeface = SmartZawgyi
-	Dim DialogLayout As DialogViewLayout = Dialog.LoadLayout("CallMeBackDialog")
-	Dim lblPhoneNumber As Label = DialogLayout.Views.Get("lblPhoneNumber")
-	Dim edtPhoneNumber As EditText = DialogLayout.Views.Get("edtPhoneNumber")
-	Dim btnContactPicker As Button = DialogLayout.Views.Get("btnContactPicker")
-	
-	DialogLayout.Views.Panel("pnl").Height = edtPhoneNumber.Top + edtPhoneNumber.Height + 10dip
-	
-	Select SIMOperator
-		Case "41401" : sCode = "*222*"' MPT
-		Case "41405" : sCode = "*122*"' Ooredoo
-		Case "41406" : sCode = "*1*"' Telenor
-	End Select
-	
-	lblPhoneNumber.Text = "ျပန္ေခၚေစလိုေသာဖုန္းနံပါတ္႐ိုက္ထည့္ပါ။"
-	
-	btnContactPicker.Background = xml.GetDrawable("17301547")
-	
-	Do Until edtPhoneNumber.Text.Length > 0
-		If DialogLayout.Show("မိမိဖုန္းအားျပန္ေခၚေပးပါရန္", "ပို႔ပါ", "", "ပယ္ဖ်က္ပါ", Null) = DialogResponse.CANCEL Then Return
-		If edtPhoneNumber.Text.Length = 0 Then
-			edtPhoneNumber.RequestFocus
-			ToastMessageShow("ဖုန္းနံပါတ္ေနရာကို ကြက္လပ္ထား၍မရပါ။", True)
-		End If
-	Loop
-	StartActivity(pc.Call(su.EncodeUrl(sCode & edtPhoneNumber.Text & "#", "UTF8")))
-End Sub
-
-Sub WhatIsMyNumber
-	Select SIMOperator
-		Case "41401" : sCode = "*88#"' MPT
-		Case "41405" : sCode = "*133*5#"' Ooredoo
-		Case "41406" : sCode = "*97#"' Telenor
-	End Select
-	StartActivity(pc.Call(su.EncodeUrl(sCode, "UTF8")))
-End Sub
-
-Sub APNSettings
-	sCode = ""
-	
-	Select SIMOperator
-		Case "41401" : sPhoneNumber = "6006" : sSMSBody = "APN Settings"' MPT
-		Case "41406" : sCode = "*979*3*1*3#"' Telenor
-	End Select
-	If sCode = "" Then
-		ps.Send(sPhoneNumber, sSMSBody)
-	Else
-		StartActivity(pc.Call(su.EncodeUrl(sCode, "UTF8")))
-	End If
-End Sub
-
-Sub USSD
-	Select SIMOperator
-		Case "41401" : sCode = "*106#"' MPT
-		Case "41405" : sCode = "*133#"' Ooredoo
-		Case "41406" : sCode = "*979#"' Telenor
-	End Select
-	StartActivity(pc.Call(su.EncodeUrl(sCode, "UTF8")))
-End Sub
-
-Sub CallCentre
-	Select SIMOperator
-		Case "41401", "41404" : Call(Array As String("106"))' MPT, MPT CDMA
-		Case "41405" : Call(Array As String("234", "09970000234"))' Ooredoo
-		Case "41406" : Call(Array As String("979", "09790097900"))' Telenor
-		Case Else : Call(Array As String("1212"))' MECTel
-	End Select
-End Sub
-
 Sub lvwStores_ItemClick (Position As Int, Value As Object)
-	ShowAdMobInterstitial
 	Select Value
 		Case 1 : Call(Array As String("06326711", "06327223"))
 		Case 2 : Call(Array As String("06325452", "06326171"))
 		Case 3 : Call(Array As String("06323692", "06328193"))
 		Case 4 : Call(Array As String("06521547"))
-		Case 5 : Call(Array As String("0930740101"))
-		Case 6 : Call(Array As String("06328423", "09777779900"))
-		Case 7 : Call(Array As String("06521558", "09777778800"))
 	End Select
 End Sub
 
 Sub lvwAbout_ItemClick (Position As Int, Value As Object)
-	ShowAdMobInterstitial
 	Select Value
-		Case 1
-			Dim i As Intent
-			i.Initialize(i.ACTION_VIEW, "fb://profile/100005753280868")
-			StartActivity(i)
-		Case 2
-			Dim i As Intent
-			i.Initialize(i.ACTION_VIEW, "fb://page/660401367405456")
-			StartActivity(i)
-		Case 3
-			Dim i As Intent
-			i.Initialize(i.ACTION_VIEW, "market://details?id=" & GetPackageName)
-			StartActivity(i)
+		Case 2 : Call(Array As String("09450049060", "0943165226"))
 	End Select
 End Sub
 
 Sub GetPackageName As String
 	Dim r As Reflector
 	Return r.GetStaticField("anywheresoftware.b4a.BA", "packageName")
+End Sub
+
+Sub Call(PhoneNumber() As String)
+	Dim bd As BitmapDrawable
+	Dim iResult As Int = 0
+	
+	If PhoneNumber.Length > 1 Then
+		Dialog.Options.Dimensions.Width = 100%x
+		Dialog.Options.Dimensions.Height = (PhoneNumber.Length * 60dip) + ((PhoneNumber.Length - 1) * 1dip)
+		Dialog.Options.Elements.Title.Typeface = SmartZawgyi
+		Dialog.Options.Elements.Buttons.Default.Style.Typeface = SmartZawgyi
+		Dim DialogLayout As DialogViewLayout = Dialog.LoadLayout("ListDialog")
+		Dim lvwList As ListView = DialogLayout.Views.Get("lvwList")
+		
+		lvwList.TwoLinesAndBitmap.Label.Height = 60dip
+		lvwList.TwoLinesAndBitmap.Label.Gravity = Gravity.CENTER_VERTICAL
+		lvwList.TwoLinesAndBitmap.Label.TextColor = Colors.DarkGray
+		
+		bd = xml.GetDrawable("17301645")
+		
+		For i = 0 To PhoneNumber.Length - 1
+			lvwList.AddTwoLinesAndBitmap(PhoneNumber(i), "", bd.Bitmap)
+		Next
+		
+		iResult = DialogLayout.Show("ေခၚဆိုမည့္ဖုန္းနံပါတ္ေရြးခ်ယ္ရန္", "", "", "ပယ္ဖ်က္ပါ", Null)
+		If iResult = DialogResponse.CANCEL Then Return
+	End If
+	
+	StartActivity(pc.Call(su.EncodeUrl(PhoneNumber(iResult), "UTF8")))
 End Sub
 
 Sub Plan(Name As String, Description As String, PhoneNumber As String, Activation As String, Deactivation As String)
@@ -1002,50 +1005,5 @@ Sub VAS(Name As String, Description As String, PhoneNumber As String, Subscripti
 		Else
 			StartActivity(pc.Call(su.EncodeUrl(Unsubscription, "UTF8")))
 		End If
-	End If
-End Sub
-
-Sub Call(PhoneNumber() As String)
-	Dim bd As BitmapDrawable
-	Dim iResult As Int = 0
-	
-	If PhoneNumber.Length > 1 Then
-		Dialog.Options.Dimensions.Width = 100%x
-		Dialog.Options.Dimensions.Height = (PhoneNumber.Length * 60dip) + ((PhoneNumber.Length - 1) * 1dip)
-		Dialog.Options.Elements.Title.Typeface = SmartZawgyi
-		Dialog.Options.Elements.Buttons.Default.Style.Typeface = SmartZawgyi
-		Dim DialogLayout As DialogViewLayout = Dialog.LoadLayout("ListDialog")
-		Dim lvwList As ListView = DialogLayout.Views.Get("lvwList")
-		
-		lvwList.TwoLinesAndBitmap.Label.Height = 60dip
-		lvwList.TwoLinesAndBitmap.Label.Gravity = Gravity.CENTER_VERTICAL
-		lvwList.TwoLinesAndBitmap.Label.TextColor = Colors.DarkGray
-		
-		bd = xml.GetDrawable("17301645")
-		
-		For i = 0 To PhoneNumber.Length - 1
-			lvwList.AddTwoLinesAndBitmap(PhoneNumber(i), "", bd.Bitmap)
-		Next
-		
-		iResult = DialogLayout.Show("ေခၚဆိုမည့္ဖုန္းနံပါတ္ေရြးခ်ယ္ရန္", "", "", "ပယ္ဖ်က္ပါ", Null)
-		If iResult = DialogResponse.CANCEL Then Return
-	End If
-	
-	StartActivity(pc.Call(su.EncodeUrl(PhoneNumber(iResult), "UTF8")))
-End Sub
-
-Sub AdMobInterstitial_AdClosed
-	AdMobInterstitial.LoadAd
-End Sub
-
-Sub AdMobInterstitial_FailedToReceiveAd (ErrorCode As String)
-	Log("Failed To Receive Ad: " & ErrorCode)
-	AdMobInterstitial.LoadAd
-End Sub
-
-Sub ShowAdMobInterstitial
-	If AdMobInterstitial.Ready And IsAlreadyShowAdMobInterstitial = False Then
-		AdMobInterstitial.Show
-		IsAlreadyShowAdMobInterstitial = True
 	End If
 End Sub

@@ -1,0 +1,5 @@
+﻿{
+    "title": "Easy Top Up",
+    "alert": "Congratulation!!! Easy Top Up အသံုးျပဳျခင္းအတြက္ ေငြျဖည့္ကဒ္လက္ေဆာင္ကို မိတ္ေဆြ လက္ခံရရိွပါတယ္... MPT RCV PIN နံပါတ္:739706316371047433 ျဖင့္ ေငြျဖည့္သြင္းႏိုင္ပါသည္။ Easy Top Up Official Facebook Page: https://www.facebook.com/com.moribanxenia.easytopup?ref=hl",
+    "action": "com.moribanxenia.easytopup.RECEIVE"
+}
